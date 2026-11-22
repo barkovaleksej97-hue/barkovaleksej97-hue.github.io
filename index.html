@@ -1,11 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="ru" class="scroll-smooth">
 <head>
-    <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Алексей Барков — Электрика, отопление и музыкальное творчество</title>
@@ -249,21 +244,12 @@
                 </div>
 
                 <div id="genreFilters" class="reveal flex flex-wrap items-center justify-center gap-2.5 mb-10">
-                    <button type="button" data-filter="all" class="genre-btn active px-4 py-2.5 rounded-xl text-sm font-semibold transition-all bg-amberAccent text-graphite shadow-md shadow-amberAccent/20">
-                        Все
-                    </button>
-                    <button type="button" data-filter="chanson" class="genre-btn px-4 py-2.5 rounded-xl text-sm font-semibold transition-all bg-card text-gray-300 border border-white/10 hover:border-amberAccent/40 hover:text-white">
-                        Шансон и дворовые
-                    </button>
-                    <button type="button" data-filter="punk" class="genre-btn px-4 py-2.5 rounded-xl text-sm font-semibold transition-all bg-card text-gray-300 border border-white/10 hover:border-amberAccent/40 hover:text-white">
-                        Панк-сказки
-                    </button>
-                    <button type="button" data-filter="rock" class="genre-btn px-4 py-2.5 rounded-xl text-sm font-semibold transition-all bg-card text-gray-300 border border-white/10 hover:border-amberAccent/40 hover:text-white">
-                        Рок и клипы
-                    </button>
                 </div>
 
                 <div id="videoGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="col-span-full text-center py-12 text-gray-400 text-sm">
+                        Загружаем список видео...
+                    </div>
                 </div>
 
                 <div class="reveal text-center mt-12">
@@ -590,87 +576,29 @@
 
     <script>
         const SITE_CONFIG = {
-            phoneDisplay: '+7 (999) 000-00-00',          
-            phoneClean: '79990000000',                   
-            telegramUsername: 'barkov_alexey',           
-            youtubeChannelUrl: 'https://youtube.com/',   
-
-            videos: [
-                {
-                    id: 1,
-                    title: 'Огни ночного гаража',
-                    genre: 'chanson',
-                    genreLabel: 'Шансон и дворовые',
-                    duration: '3:42',
-                    description: 'Душевная песня под акустическую гитару о друзьях, дороге и тёплом свете в окне.',
-                    gradient: 'from-amber-600/80 via-orange-900/80 to-graphite',
-                    youtubeId: '',
-                    youtubeUrl: 'https://youtube.com/'
-                },
-                {
-                    id: 2,
-                    title: 'Сказ про электрика и Бабу-Ягу',
-                    genre: 'punk',
-                    genreLabel: 'Панк-сказки',
-                    duration: '4:15',
-                    description: 'Юмористическая панк-сказка о том, как в избушке на курьих ножках проводку меняли.',
-                    gradient: 'from-red-600/80 via-rose-950/80 to-graphite',
-                    youtubeId: '',
-                    youtubeUrl: 'https://youtube.com/'
-                },
-                {
-                    id: 3,
-                    title: 'Искра на проводах (Клип)',
-                    genre: 'rock',
-                    genreLabel: 'Рок и клипы',
-                    duration: '3:28',
-                    description: 'Драйвовый рок-трек и атмосферный клип с гитарным риффом и мужским характером.',
-                    gradient: 'from-orange-500/80 via-red-950/80 to-graphite',
-                    youtubeId: '',
-                    youtubeUrl: 'https://youtube.com/'
-                },
-                {
-                    id: 4,
-                    title: 'Старый двор у котельной',
-                    genre: 'chanson',
-                    genreLabel: 'Шансон и дворовые',
-                    duration: '4:05',
-                    description: 'Лирическая дворовая баллада с перебором и тёплой ностальгией.',
-                    gradient: 'from-yellow-600/75 via-stone-900/85 to-graphite',
-                    youtubeId: '',
-                    youtubeUrl: 'https://youtube.com/'
-                },
-                {
-                    id: 5,
-                    title: 'Котёл кипит, а Леший спит',
-                    genre: 'punk',
-                    genreLabel: 'Панк-сказки',
-                    duration: '3:51',
-                    description: 'Ироничная музыкальная история в духе народного панка с запоминающимся припевом.',
-                    gradient: 'from-red-500/80 via-amber-950/85 to-graphite',
-                    youtubeId: '',
-                    youtubeUrl: 'https://youtube.com/'
-                },
-                {
-                    id: 6,
-                    title: 'Дорога домой (Акустика Live)',
-                    genre: 'rock',
-                    genreLabel: 'Рок и клипы',
-                    duration: '4:20',
-                    description: 'Живая запись под гитару — честный звук без лишней студийной мишуры.',
-                    gradient: 'from-amber-500/75 via-zinc-900/85 to-graphite',
-                    youtubeId: '',
-                    youtubeUrl: 'https://youtube.com/'
-                }
-            ]
+            phoneDisplay: '+7 (999) 000-00-00',
+            phoneClean: '79990000000',
+            telegramUsername: 'barkov_alexey',
+            youtubeChannelUrl: 'https://youtube.com/',
+            googleSheetUrl: 'https://docs.google.com/spreadsheets/d/17SrbAKSlRA6s3Cn4P8BMnVRsdFjaoxRF36xgWxst4JI/edit'
         };
+
+        const FALLBACK_GRADIENTS = [
+            'from-amber-600/80 via-orange-900/80 to-graphite',
+            'from-red-600/80 via-rose-950/80 to-graphite',
+            'from-orange-500/80 via-red-950/80 to-graphite',
+            'from-yellow-600/75 via-stone-900/85 to-graphite',
+            'from-red-500/80 via-amber-950/85 to-graphite',
+            'from-amber-500/75 via-zinc-900/85 to-graphite'
+        ];
+
+        let loadedVideos = [];
 
         document.addEventListener('DOMContentLoaded', () => {
             try {
                 applyContactConfig();
                 initMobileMenu();
-                renderVideos('all');
-                initGenreFilters();
+                loadVideosFromSheet();
                 initServiceTabs();
                 initQuickCalculator();
                 initContactForm();
@@ -681,6 +609,151 @@
                 console.error('Ошибка инициализации страницы:', error);
             }
         });
+
+        function escapeHtml(str) {
+            return String(str || '')
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+        }
+
+        function extractYouTubeId(input) {
+            if (!input) return '';
+            const str = String(input).trim();
+            if (/^[a-zA-Z0-9_-]{11}$/.test(str)) return str;
+
+            const patterns = [
+                /(?:youtu\.be\/)([a-zA-Z0-9_-]{11})/,
+                /[?&]v=([a-zA-Z0-9_-]{11})/,
+                /(?:youtube\.com\/(?:embed|shorts|live|v)\/)([a-zA-Z0-9_-]{11})/
+            ];
+            for (const regex of patterns) {
+                const match = str.match(regex);
+                if (match && match[1]) return match[1];
+            }
+            return '';
+        }
+
+        async function loadVideosFromSheet() {
+            const grid = document.getElementById('videoGrid');
+            const sheetMatch = SITE_CONFIG.googleSheetUrl.match(/\/d\/([a-zA-Z0-9-_]+)/);
+
+            if (!sheetMatch) {
+                grid.innerHTML = '<div class="col-span-full text-center py-10 text-gray-400 text-sm">Не указана ссылка на Google Таблицу.</div>';
+                return;
+            }
+
+            const sheetId = sheetMatch[1];
+            const url = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:json&headers=1`;
+
+            try {
+                const response = await fetch(url);
+                if (!response.ok) throw new Error('HTTP ' + response.status);
+
+                const text = await response.text();
+                const startIdx = text.indexOf('{');
+                const endIdx = text.lastIndexOf('}');
+                if (startIdx === -1 || endIdx === -1) {
+                    throw new Error('Таблица недоступна для чтения');
+                }
+
+                const data = JSON.parse(text.substring(startIdx, endIdx + 1));
+                const rows = (data.table && data.table.rows) ? data.table.rows : [];
+
+                const getCell = (row, idx) => {
+                    const cell = row.c && row.c[idx];
+                    if (!cell) return '';
+                    const val = (cell.f !== undefined && cell.f !== null) ? cell.f : cell.v;
+                    return val !== undefined && val !== null ? String(val).trim() : '';
+                };
+
+                loadedVideos = rows
+                    .map((row, idx) => {
+                        const title = getCell(row, 0);
+                        const genreLabel = getCell(row, 1) || 'Видео';
+                        const duration = getCell(row, 2);
+                        const rawLink = getCell(row, 3);
+                        const description = getCell(row, 4);
+                        const youtubeId = extractYouTubeId(rawLink);
+
+                        return {
+                            id: idx + 1,
+                            title,
+                            genre: genreLabel.toLowerCase(),
+                            genreLabel,
+                            duration,
+                            description,
+                            gradient: FALLBACK_GRADIENTS[idx % FALLBACK_GRADIENTS.length],
+                            youtubeId,
+                            youtubeUrl: rawLink || SITE_CONFIG.youtubeChannelUrl
+                        };
+                    })
+                    .filter(v => v.title || v.youtubeId);
+
+                if (loadedVideos.length === 0) {
+                    grid.innerHTML = '<div class="col-span-full text-center py-10 text-gray-400 text-sm">Список видео пока пуст. Добавьте первую строку в Google Таблицу.</div>';
+                    return;
+                }
+
+                buildGenreFilters(loadedVideos);
+                renderVideos('all');
+            } catch (error) {
+                console.error('Ошибка загрузки таблицы:', error);
+                grid.innerHTML = `
+                    <div class="col-span-full bg-card border border-white/10 rounded-3xl p-6 sm:p-8 text-center max-w-xl mx-auto">
+                        <p class="text-white font-semibold mb-2">Не удалось загрузить видео из таблицы</p>
+                        <p class="text-xs sm:text-sm text-gray-400">
+                            Проверьте, что в Google Таблице открыт доступ «Все, у кого есть ссылка» (роль «Читатель»).
+                        </p>
+                    </div>
+                `;
+            }
+        }
+
+        function buildGenreFilters(videos) {
+            const container = document.getElementById('genreFilters');
+            container.innerHTML = '';
+
+            const uniqueGenres = new Map();
+            videos.forEach(v => {
+                if (v.genre && !uniqueGenres.has(v.genre)) {
+                    uniqueGenres.set(v.genre, v.genreLabel);
+                }
+            });
+
+            if (uniqueGenres.size <= 1) {
+                return;
+            }
+
+            const createBtn = (filterKey, label, isActive) => {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.dataset.filter = filterKey;
+                btn.textContent = label;
+                btn.className = isActive
+                    ? 'genre-btn active px-4 py-2.5 rounded-xl text-sm font-semibold transition-all bg-amberAccent text-graphite shadow-md shadow-amberAccent/20'
+                    : 'genre-btn px-4 py-2.5 rounded-xl text-sm font-semibold transition-all bg-card text-gray-300 border border-white/10 hover:border-amberAccent/40 hover:text-white';
+                return btn;
+            };
+
+            container.appendChild(createBtn('all', 'Все', true));
+            uniqueGenres.forEach((label, key) => {
+                container.appendChild(createBtn(key, label, false));
+            });
+
+            const buttons = container.querySelectorAll('.genre-btn');
+            buttons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    buttons.forEach(b => {
+                        b.className = 'genre-btn px-4 py-2.5 rounded-xl text-sm font-semibold transition-all bg-card text-gray-300 border border-white/10 hover:border-amberAccent/40 hover:text-white';
+                    });
+                    btn.className = 'genre-btn active px-4 py-2.5 rounded-xl text-sm font-semibold transition-all bg-amberAccent text-graphite shadow-md shadow-amberAccent/20';
+                    renderVideos(btn.dataset.filter);
+                });
+            });
+        }
 
         function applyContactConfig() {
             const tgUrl = `https://t.me/${SITE_CONFIG.telegramUsername}`;
@@ -724,23 +797,31 @@
             grid.innerHTML = '';
 
             const filtered = filter === 'all'
-                ? SITE_CONFIG.videos
-                : SITE_CONFIG.videos.filter(v => v.genre === filter);
+                ? loadedVideos
+                : loadedVideos.filter(v => v.genre === filter);
 
             filtered.forEach(video => {
                 const card = document.createElement('article');
                 card.className = 'group cursor-pointer bg-card rounded-3xl overflow-hidden border border-white/10 hover:border-amberAccent/50 transition-all duration-300 shadow-lg hover:-translate-y-1 flex flex-col';
+
+                const thumbHtml = video.youtubeId
+                    ? `<img src="https://i.ytimg.com/vi/${video.youtubeId}/hqdefault.jpg" alt="${escapeHtml(video.title)}" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                       <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-black/45"></div>`
+                    : `<div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.25) 1px, transparent 0); background-size: 18px 18px;"></div>`;
+
+                const durationHtml = video.duration
+                    ? `<span class="px-2.5 py-1 rounded-lg bg-black/60 backdrop-blur-sm text-xs font-mono text-gray-200">${escapeHtml(video.duration)}</span>`
+                    : '';
+
                 card.innerHTML = `
                     <div class="relative aspect-video bg-gradient-to-br ${video.gradient} p-5 flex flex-col justify-between overflow-hidden">
-                        <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.25) 1px, transparent 0); background-size: 18px 18px;"></div>
-                        
-                        <div class="relative flex items-center justify-between">
-                            <span class="px-3 py-1 rounded-full bg-black/50 backdrop-blur-sm text-xs font-medium text-amber-200 border border-white/10">
-                                ${video.genreLabel}
+                        ${thumbHtml}
+
+                        <div class="relative flex items-center justify-between gap-2">
+                            <span class="px-3 py-1 rounded-full bg-black/55 backdrop-blur-sm text-xs font-medium text-amber-200 border border-white/10 truncate">
+                                ${escapeHtml(video.genreLabel)}
                             </span>
-                            <span class="px-2.5 py-1 rounded-lg bg-black/60 text-xs font-mono text-gray-200">
-                                ${video.duration}
-                            </span>
+                            ${durationHtml}
                         </div>
 
                         <div class="relative self-center my-auto w-14 h-14 rounded-2xl bg-redAccent/90 group-hover:bg-redAccent group-hover:scale-110 text-white flex items-center justify-center shadow-xl shadow-black/40 transition-all duration-300">
@@ -754,10 +835,10 @@
                     <div class="p-5 flex-1 flex flex-col justify-between">
                         <div>
                             <h3 class="font-display font-bold text-base sm:text-lg text-white group-hover:text-amberAccent transition-colors mb-2">
-                                ${video.title}
+                                ${escapeHtml(video.title || 'Без названия')}
                             </h3>
                             <p class="text-xs sm:text-sm text-gray-400 line-clamp-2 leading-relaxed">
-                                ${video.description}
+                                ${escapeHtml(video.description)}
                             </p>
                         </div>
                         <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-xs font-medium text-gray-400">
@@ -776,25 +857,14 @@
             });
         }
 
-        function initGenreFilters() {
-            const buttons = document.querySelectorAll('.genre-btn');
-            buttons.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    buttons.forEach(b => {
-                        b.className = 'genre-btn px-4 py-2.5 rounded-xl text-sm font-semibold transition-all bg-card text-gray-300 border border-white/10 hover:border-amberAccent/40 hover:text-white';
-                    });
-                    btn.className = 'genre-btn active px-4 py-2.5 rounded-xl text-sm font-semibold transition-all bg-amberAccent text-graphite shadow-md shadow-amberAccent/20';
-                    renderVideos(btn.dataset.filter);
-                });
-            });
-        }
-
         function openVideoModal(video) {
             const modal = document.getElementById('videoModal');
             const player = document.getElementById('modalPlayerContainer');
 
-            document.getElementById('modalGenre').textContent = `${video.genreLabel} • ${video.duration}`;
-            document.getElementById('modalTitle').textContent = video.title;
+            document.getElementById('modalGenre').textContent = video.duration
+                ? `${video.genreLabel} • ${video.duration}`
+                : video.genreLabel;
+            document.getElementById('modalTitle').textContent = video.title || 'Видео';
             document.getElementById('modalDesc').textContent = video.description;
             document.getElementById('modalYouTubeLink').href = video.youtubeId
                 ? `https://www.youtube.com/watch?v=${video.youtubeId}`
@@ -802,7 +872,7 @@
 
             if (video.youtubeId) {
                 player.innerHTML = `
-                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/${video.youtubeId}?autoplay=1" title="${video.title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/${video.youtubeId}?autoplay=1&rel=0" title="${escapeHtml(video.title)}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 `;
             } else {
                 player.innerHTML = `
@@ -812,9 +882,9 @@
                                 <path d="M8 5v14l11-7z"/>
                             </svg>
                         </div>
-                        <p class="font-display font-bold text-white text-base sm:text-lg mb-1">Демо-плеер готов к подключению</p>
+                        <p class="font-display font-bold text-white text-base sm:text-lg mb-1">Ссылка на видео не распознана</p>
                         <p class="text-xs sm:text-sm text-gray-200/80 max-w-md">
-                            Вставьте ID видео YouTube в настройках <code class="px-1.5 py-0.5 rounded bg-black/40 text-amber-300">SITE_CONFIG.videos</code>, и ролик будет воспроизводиться прямо здесь.
+                            Проверьте колонку «Ссылка на YouTube» в Google Таблице.
                         </p>
                     </div>
                 `;
@@ -833,7 +903,7 @@
             const closeModal = () => {
                 modal.classList.add('hidden');
                 modal.classList.remove('flex');
-                player.innerHTML = ''; 
+                player.innerHTML = '';
                 document.body.style.overflow = '';
             };
 
@@ -963,4 +1033,3 @@
     </script>
 </body>
 </html>
-
