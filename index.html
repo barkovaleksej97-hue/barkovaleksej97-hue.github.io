@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Сайт Лёхи</title>
-  <meta name="description" content="Сайт Алексея Баркова (Свободный): авторские песни, клипы, панк-сказки, а также услуги по электрике и отоплению.">
+  <title>Сайт Лёхи — Электрика, отопление и творчество</title>
+  <meta name="description" content="Сайт Алексея Баркова (Свободный, Амурская область): актуальный прайс-лист 2026 и калькулятор на электромонтаж и электроотопление, а также авторские песни, клипы и панк-сказки.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://barkovaleksej97-hue.github.io/site1/">
   <!-- Превью для WhatsApp, Telegram и соцсетей -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://barkovaleksej97-hue.github.io/site1/">
-  <meta property="og:title" content="Сайт Лёхи">
-  <meta property="og:description" content="Авторские клипы, песни, панк-сказки и услуги по электрике и отоплению в Свободном.">
+  <meta property="og:title" content="Сайт Лёхи — Электрика, отопление и творчество">
+  <meta property="og:description" content="Электромонтаж, установка электроотопления (прайс 2026 и онлайн-калькулятор), авторские клипы, песни и панк-сказки в Свободном.">
   <!-- Иконка сайта во вкладке браузера (Favicon) -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23f59e0b'/%3E%3Cstop offset='100%25' stop-color='%23ef4444'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='800' font-size='28' fill='%230d0f12'%3E%D0%90%D0%91%3C/text%3E%3C/svg%3E">
   <meta name="theme-color" content="#0d0f12">
@@ -66,6 +66,15 @@
       -ms-overflow-style: none;
       scrollbar-width: none;
     }
+    /* Убираем стандартные стрелки у input[type=number] */
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    input[type="number"] {
+      -moz-appearance: textfield;
+    }
     ::-webkit-scrollbar {
       width: 8px;
     }
@@ -96,7 +105,7 @@
         <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-gray-300">
           <a href="#about" class="hover:text-amberAccent transition-colors">Обо мне</a>
           <a href="#creative" class="hover:text-amberAccent transition-colors">Творчество</a>
-          <a href="#services" class="hover:text-amberAccent transition-colors">Услуги и прайс</a>
+          <a href="#services" class="hover:text-amberAccent transition-colors">Прайс и калькулятор</a>
           <a href="#contacts" class="hover:text-amberAccent transition-colors">Контакты</a>
         </nav>
         <div class="flex items-center gap-3">
@@ -121,7 +130,7 @@
       <div class="px-3 pt-3 pb-5 space-y-2">
         <a href="#about" class="mobile-nav-link block px-4 py-3 rounded-xl text-base font-medium text-gray-200 hover:bg-white/5 hover:text-amberAccent transition-colors">Обо мне</a>
         <a href="#creative" class="mobile-nav-link block px-4 py-3 rounded-xl text-base font-medium text-gray-200 hover:bg-white/5 hover:text-amberAccent transition-colors">Творчество и YouTube</a>
-        <a href="#services" class="mobile-nav-link block px-4 py-3 rounded-xl text-base font-medium text-gray-200 hover:bg-white/5 hover:text-amberAccent transition-colors">Услуги и прайс</a>
+        <a href="#services" class="mobile-nav-link block px-4 py-3 rounded-xl text-base font-medium text-gray-200 hover:bg-white/5 hover:text-amberAccent transition-colors">Прайс 2026 и калькулятор</a>
         <a href="#contacts" class="mobile-nav-link block px-4 py-3 rounded-xl text-base font-medium text-gray-200 hover:bg-white/5 hover:text-amberAccent transition-colors">Контакты</a>
         <div class="pt-2">
           <a href="#contacts" class="mobile-nav-link flex items-center justify-center gap-2 w-full px-4 py-3.5 rounded-xl bg-gradient-to-r from-amberAccent to-orange-500 text-graphite font-bold text-base shadow-lg">
@@ -142,7 +151,7 @@
       <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-card border border-amberAccent/30 text-amber-300 text-xs sm:text-sm font-medium mb-6 shadow-md">
           <span class="w-2 h-2 rounded-full bg-amberAccent animate-pulse"></span>
-          Свет, тепло и живой звук
+          Свет, тепло и живой звук • Амурская область
         </div>
         <h1 class="font-display font-extrabold text-4xl sm:text-5xl md:text-6xl tracking-tight text-white leading-tight mb-5">
           Алексей <span class="text-transparent bg-clip-text bg-gradient-to-r from-amberAccent via-orange-400 to-redAccent">Барков</span>
@@ -154,17 +163,17 @@
           Делаю надёжный свет и тепло в домах, а для души пишу песни, юмористические панк-сказки и снимаю клипы.
         </p>
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a href="#creative" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-2xl bg-gradient-to-r from-amberAccent to-redAccent hover:from-amber-400 hover:to-red-500 text-graphite font-bold text-base shadow-xl shadow-amberAccent/20 transition-all hover:-translate-y-0.5 active:scale-95">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+          <a href="#services" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-2xl bg-gradient-to-r from-amberAccent to-redAccent hover:from-amber-400 hover:to-red-500 text-graphite font-bold text-base shadow-xl shadow-amberAccent/20 transition-all hover:-translate-y-0.5 active:scale-95">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+            Прайс 2026 и калькулятор
+          </a>
+          <a href="#creative" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-2xl glass-card hover:bg-cardHover border border-white/15 hover:border-amberAccent/50 text-white font-semibold text-base transition-all hover:-translate-y-0.5 active:scale-95">
+            <svg class="w-5 h-5 text-redAccent" fill="currentColor" viewBox="0 0 24 24">
               <path d="M8 5v14l11-7z"/>
             </svg>
             Смотреть творчество
-          </a>
-          <a href="#services" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-2xl glass-card hover:bg-cardHover border border-white/15 hover:border-amberAccent/50 text-white font-semibold text-base transition-all hover:-translate-y-0.5 active:scale-95">
-            <svg class="w-5 h-5 text-amberAccent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-            </svg>
-            Услуги и прайс
           </a>
         </div>
       </div>
@@ -190,12 +199,12 @@
               Дело и мастерство
             </h3>
             <p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-6">
-              Полная замена и монтаж электропроводки в квартирах и частных домах, установка радиаторов и систем отопления, работа с твердотопливными и электрокотлами, обслуживание котельного оборудования.
+              Полная замена и монтаж электропроводки в кирпичных, бетонных и деревянных домах, установка радиаторов и систем электроотопления, работа с твердотопливными и электрокотлами, обслуживание котельного оборудования.
             </p>
             <ul class="space-y-2.5 text-sm text-gray-400">
               <li class="flex items-center gap-2.5">
                 <span class="w-1.5 h-1.5 rounded-full bg-amberAccent"></span>
-                Аккуратный монтаж и соблюдение всех норм безопасности
+                Аккуратный монтаж и соблюдение всех норм безопасности (ПУЭ)
               </li>
               <li class="flex items-center gap-2.5">
                 <span class="w-1.5 h-1.5 rounded-full bg-amberAccent"></span>
@@ -282,148 +291,155 @@
 
     <section id="services" class="py-16 sm:py-24 border-t border-white/5">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="reveal text-center max-w-2xl mx-auto mb-10 sm:mb-12">
-          <span class="text-amberAccent font-semibold text-xs sm:text-sm uppercase tracking-widest">Инженерные работы</span>
-          <h2 class="font-display font-bold text-3xl sm:text-4xl text-white mt-2">Услуги и прайс-лист</h2>
+        <div class="reveal text-center max-w-3xl mx-auto mb-10 sm:mb-12">
+          <span class="text-amberAccent font-semibold text-xs sm:text-sm uppercase tracking-widest">Амурская область • Цены 2026 года</span>
+          <h2 class="font-display font-bold text-3xl sm:text-4xl text-white mt-2">Прайс-лист и калькулятор работ</h2>
           <p class="text-gray-400 mt-3 text-sm sm:text-base">
-            Ориентировочная стоимость основных работ. Точный расчёт — после осмотра объекта или короткой консультации.
+            Актуальные расценки за работу (без стоимости материалов). Нажимайте <span class="text-amberAccent font-semibold">«+ В расчёт»</span> на нужных позициях или меняйте количество прямо в калькуляторе справа.
           </p>
         </div>
+
+        <!-- Вкладки разделов прайса -->
         <div class="reveal flex justify-center mb-8">
-          <div class="inline-flex p-1.5 rounded-2xl glass-card border border-white/10 w-full sm:w-auto">
-            <button type="button" data-service-tab="electric" class="service-tab-btn flex-1 sm:flex-none px-5 py-3 rounded-xl text-sm font-bold transition-all bg-amberAccent text-graphite shadow-md">
-              ⚡ Электрика
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 p-1.5 rounded-2xl glass-card border border-white/10 w-full max-w-3xl">
+            <button type="button" data-price-tab="brick" class="price-tab-btn px-4 py-3 rounded-xl text-xs sm:text-sm font-bold transition-all bg-amberAccent text-graphite shadow-md">
+              ⚡ Кирпич и бетон
             </button>
-            <button type="button" data-service-tab="heating" class="service-tab-btn flex-1 sm:flex-none px-5 py-3 rounded-xl text-sm font-bold transition-all text-gray-300 hover:text-white">
-              🔥 Отопление и котлы
+            <button type="button" data-price-tab="wood" class="price-tab-btn px-4 py-3 rounded-xl text-xs sm:text-sm font-bold transition-all text-gray-300 hover:text-white">
+              🪵 Деревянный дом
+            </button>
+            <button type="button" data-price-tab="heating" class="price-tab-btn px-4 py-3 rounded-xl text-xs sm:text-sm font-bold transition-all text-gray-300 hover:text-white">
+              🔥 Электроотопление
             </button>
           </div>
         </div>
+
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <!-- Левая колонка: Таблица прайса -->
           <div class="reveal lg:col-span-7 glass-card rounded-3xl border border-white/10 overflow-hidden shadow-xl">
-            <div id="tab-electric" class="service-panel divide-y divide-white/10">
-              <div class="p-5 sm:p-6 bg-white/[0.02] flex items-center justify-between">
-                <h3 class="font-display font-bold text-lg text-white flex items-center gap-2.5">
-                  <span class="text-amberAccent">⚡</span> Электромонтажные работы
+            <div class="p-5 sm:p-6 bg-white/[0.02] border-b border-white/10 flex flex-wrap items-center justify-between gap-2">
+              <div>
+                <h3 id="priceTableTitle" class="font-display font-bold text-base sm:text-lg text-white">
+                  ⚡ Электропроводка в кирпичном и бетонном помещении
                 </h3>
-                <span class="text-xs text-gray-400 uppercase tracking-wider">Прайс</span>
+                <p id="priceTableSubtitle" class="text-xs text-gray-400 mt-0.5">
+                  Скрытый монтаж в штробах по стандартам ПУЭ • Прайс 2026 г.
+                </p>
               </div>
-              <div class="p-5 sm:px-6 flex flex-col sm:flex-row sm:items-center justify-between gap-2 hover:bg-white/[0.02] transition-colors">
-                <div>
-                  <p class="font-semibold text-white text-sm sm:text-base">Полная замена проводки в квартире / доме</p>
-                  <p class="text-xs text-gray-400 mt-0.5">Штробление, прокладка кабеля, распределительные коробки</p>
-                </div>
-                <span class="text-amberAccent font-display font-bold text-base sm:text-lg whitespace-nowrap">от 35 000 ₽</span>
-              </div>
-              <div class="p-5 sm:px-6 flex flex-col sm:flex-row sm:items-center justify-between gap-2 hover:bg-white/[0.02] transition-colors">
-                <div>
-                  <p class="font-semibold text-white text-sm sm:text-base">Сборка и монтаж электрощитов</p>
-                  <p class="text-xs text-gray-400 mt-0.5">Аккуратная расключка, маркировка линий, УЗО и автоматы</p>
-                </div>
-                <span class="text-amberAccent font-display font-bold text-base sm:text-lg whitespace-nowrap">от 6 000 ₽</span>
-              </div>
-              <div class="p-5 sm:px-6 flex flex-col sm:flex-row sm:items-center justify-between gap-2 hover:bg-white/[0.02] transition-colors">
-                <div>
-                  <p class="font-semibold text-white text-sm sm:text-base">Установка розеток, выключателей и освещения</p>
-                  <p class="text-xs text-gray-400 mt-0.5">Люстры, бра, светодиодная подсветка, проходные выключатели</p>
-                </div>
-                <span class="text-amberAccent font-display font-bold text-base sm:text-lg whitespace-nowrap">от 400 ₽</span>
-              </div>
-              <div class="p-5 sm:px-6 flex flex-col sm:flex-row sm:items-center justify-between gap-2 hover:bg-white/[0.02] transition-colors">
-                <div>
-                  <p class="font-semibold text-white text-sm sm:text-base">Подключение реле напряжения и автоматики</p>
-                  <p class="text-xs text-gray-400 mt-0.5">Защита бытовой техники от скачков и обрыва нуля</p>
-                </div>
-                <span class="text-amberAccent font-display font-bold text-base sm:text-lg whitespace-nowrap">от 2 500 ₽</span>
-              </div>
-              <div class="p-5 sm:px-6 flex flex-col sm:flex-row sm:items-center justify-between gap-2 hover:bg-white/[0.02] transition-colors">
-                <div>
-                  <p class="font-semibold text-white text-sm sm:text-base">Поиск и устранение неисправностей</p>
-                  <p class="text-xs text-gray-400 mt-0.5">Диагностика обрывов, коротких замыканий, выбивания автоматов</p>
-                </div>
-                <span class="text-amberAccent font-display font-bold text-base sm:text-lg whitespace-nowrap">от 1 500 ₽</span>
-              </div>
+              <span class="px-2.5 py-1 rounded-lg bg-amberAccent/15 text-amberAccent text-xs font-semibold">
+                За работу
+              </span>
             </div>
-            <div id="tab-heating" class="service-panel hidden divide-y divide-white/10">
-              <div class="p-5 sm:p-6 bg-white/[0.02] flex items-center justify-between">
-                <h3 class="font-display font-bold text-lg text-white flex items-center gap-2.5">
-                  <span class="text-redAccent">🔥</span> Отопление и оборудование
-                </h3>
-                <span class="text-xs text-gray-400 uppercase tracking-wider">Прайс</span>
-              </div>
-              <div class="p-5 sm:px-6 flex flex-col sm:flex-row sm:items-center justify-between gap-2 hover:bg-white/[0.02] transition-colors">
-                <div>
-                  <p class="font-semibold text-white text-sm sm:text-base">Монтаж двухтрубных систем отопления</p>
-                  <p class="text-xs text-gray-400 mt-0.5">Разводка труб, балансировка контуров, опрессовка системы</p>
+
+            <!-- Список позиций прайса рендерится из JS -->
+            <div id="priceListContainer" class="divide-y divide-white/10">
+            </div>
+
+            <!-- Ориентиры под ключ и примечание -->
+            <div class="p-5 sm:p-6 bg-white/[0.02] border-t border-white/10 space-y-3">
+              <div class="rounded-2xl bg-graphite/80 border border-white/10 p-4">
+                <p class="text-xs font-bold uppercase tracking-wider text-amberAccent mb-2">
+                  Ориентир по замене проводки «под ключ» (черновой монтаж):
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs text-gray-300">
+                  <div class="p-2.5 rounded-xl bg-white/[0.03] border border-white/5">
+                    <span class="text-gray-400 block">1-комн. квартира</span>
+                    <strong class="text-white text-sm">от 45 000 ₽</strong>
+                  </div>
+                  <div class="p-2.5 rounded-xl bg-white/[0.03] border border-white/5">
+                    <span class="text-gray-400 block">2-комн. квартира</span>
+                    <strong class="text-white text-sm">от 65 000 ₽</strong>
+                  </div>
+                  <div class="p-2.5 rounded-xl bg-white/[0.03] border border-white/5">
+                    <span class="text-gray-400 block">3-комн. квартира</span>
+                    <strong class="text-white text-sm">от 80 000 ₽</strong>
+                  </div>
                 </div>
-                <span class="text-amberAccent font-display font-bold text-base sm:text-lg whitespace-nowrap">от 25 000 ₽</span>
               </div>
-              <div class="p-5 sm:px-6 flex flex-col sm:flex-row sm:items-center justify-between gap-2 hover:bg-white/[0.02] transition-colors">
-                <div>
-                  <p class="font-semibold text-white text-sm sm:text-base">Установка и обвязка электрокотлов</p>
-                  <p class="text-xs text-gray-400 mt-0.5">Монтаж, подключение к сети, группа безопасности, запуск</p>
-                </div>
-                <span class="text-amberAccent font-display font-bold text-base sm:text-lg whitespace-nowrap">от 12 000 ₽</span>
-              </div>
-              <div class="p-5 sm:px-6 flex flex-col sm:flex-row sm:items-center justify-between gap-2 hover:bg-white/[0.02] transition-colors">
-                <div>
-                  <p class="font-semibold text-white text-sm sm:text-base">Установка и обвязка твердотопливных котлов</p>
-                  <p class="text-xs text-gray-400 mt-0.5">Обвязка металлом/полипропиленом, расширительный бак</p>
-                </div>
-                <span class="text-amberAccent font-display font-bold text-base sm:text-lg whitespace-nowrap">от 18 000 ₽</span>
-              </div>
-              <div class="p-5 sm:px-6 flex flex-col sm:flex-row sm:items-center justify-between gap-2 hover:bg-white/[0.02] transition-colors">
-                <div>
-                  <p class="font-semibold text-white text-sm sm:text-base">Монтаж радиаторов отопления</p>
-                  <p class="text-xs text-gray-400 mt-0.5">Навеска, установка кранов Маевского и запорной арматуры</p>
-                </div>
-                <span class="text-amberAccent font-display font-bold text-base sm:text-lg whitespace-nowrap">от 3 500 ₽</span>
-              </div>
-              <div class="p-5 sm:px-6 flex flex-col sm:flex-row sm:items-center justify-between gap-2 hover:bg-white/[0.02] transition-colors">
-                <div>
-                  <p class="font-semibold text-white text-sm sm:text-base">Обслуживание насосов и котельного оборудования</p>
-                  <p class="text-xs text-gray-400 mt-0.5">Замена циркуляционных насосов, чистка фильтров, ревизия</p>
-                </div>
-                <span class="text-amberAccent font-display font-bold text-base sm:text-lg whitespace-nowrap">от 2 500 ₽</span>
-              </div>
+              <ul class="text-xs text-gray-400 space-y-1 leading-relaxed">
+                <li>• Цены указаны ориентировочно за работу без учёта кабеля, автоматики, труб и оборудования.</li>
+                <li>• Минимальный выезд на мелкий ремонт — от <strong class="text-gray-200">1 500 ₽</strong>. При заказе комплексного монтажа выезд на замер и смета — <strong class="text-emerald-400">бесплатно</strong>.</li>
+              </ul>
             </div>
           </div>
-          <div class="reveal lg:col-span-5 bg-gradient-to-b from-card to-[#13161d] rounded-3xl p-6 sm:p-7 border border-amberAccent/30 shadow-xl">
-            <div class="flex items-center gap-3 mb-4">
-              <div class="w-10 h-10 rounded-xl bg-amberAccent/15 text-amberAccent flex items-center justify-center">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
-                </svg>
+
+          <!-- Правая колонка: Реальный интерактивный калькулятор -->
+          <div id="calculatorCard" class="reveal lg:col-span-5 lg:sticky lg:top-24 bg-gradient-to-b from-card to-[#13161d] rounded-3xl p-5 sm:p-6 border border-amberAccent/35 shadow-2xl">
+            <div class="flex items-center justify-between gap-3 pb-4 border-b border-white/10">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-amberAccent/15 text-amberAccent flex items-center justify-center shrink-0">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-display font-bold text-lg text-white">Калькулятор работ</h3>
+                  <p class="text-xs text-gray-400">Расчёт сметы онлайн по прайсу 2026</p>
+                </div>
               </div>
-              <div>
-                <h3 class="font-display font-bold text-lg text-white">Быстрый расчёт заявки</h3>
-                <p class="text-xs text-gray-400">Сформирую готовое сообщение для мессенджера</p>
+              <button type="button" id="resetCalcBtn" title="Очистить расчёт" class="px-3 py-1.5 rounded-xl bg-white/5 hover:bg-redAccent/20 text-xs font-medium text-gray-300 hover:text-red-300 border border-white/10 transition-colors">
+                Сбросить
+              </button>
+            </div>
+
+            <!-- Готовые шаблоны быстрого расчёта -->
+            <div class="mt-4">
+              <p class="text-[11px] font-semibold uppercase tracking-wider text-gray-400 mb-2">Быстрый шаблон объекта:</p>
+              <div class="grid grid-cols-3 gap-1.5">
+                <button type="button" data-preset="brick" class="preset-btn px-2.5 py-2 rounded-xl bg-white/5 hover:bg-amberAccent/20 border border-white/10 hover:border-amberAccent/40 text-[11px] font-semibold text-gray-200 transition-all text-center">
+                  🧱 Кирпич
+                </button>
+                <button type="button" data-preset="wood" class="preset-btn px-2.5 py-2 rounded-xl bg-white/5 hover:bg-amberAccent/20 border border-white/10 hover:border-amberAccent/40 text-[11px] font-semibold text-gray-200 transition-all text-center">
+                  🪵 Дерево
+                </button>
+                <button type="button" data-preset="heating" class="preset-btn px-2.5 py-2 rounded-xl bg-white/5 hover:bg-amberAccent/20 border border-white/10 hover:border-amberAccent/40 text-[11px] font-semibold text-gray-200 transition-all text-center">
+                  🔥 Отопление
+                </button>
               </div>
             </div>
-            <div class="space-y-4 mt-5">
-              <div>
-                <label for="calcCategory" class="block text-xs font-medium text-gray-300 mb-1.5">Категория услуги</label>
-                <select id="calcCategory" class="w-full px-4 py-3 rounded-xl bg-graphite border border-white/15 text-white text-sm focus:outline-none focus:border-amberAccent transition-colors">
-                  <option value="Электрика (монтаж / замена проводки)">Электрика (монтаж / замена проводки)</option>
-                  <option value="Сборка щита / автоматика">Сборка щита / автоматика</option>
-                  <option value="Отопление и радиаторы">Отопление и радиаторы</option>
-                  <option value="Установка / обслуживание котла">Установка / обслуживание котла</option>
-                  <option value="Другой вопрос / сотрудничество">Другой вопрос / сотрудничество</option>
-                </select>
+
+            <!-- Список позиций в расчёте -->
+            <div class="mt-4">
+              <div class="flex items-center justify-between text-xs text-gray-400 mb-2">
+                <span>Позиции в расчёте:</span>
+                <span id="calcItemsCount" class="text-amber-300 font-semibold">0 поз.</span>
               </div>
-              <div>
-                <label for="calcDetails" class="block text-xs font-medium text-gray-300 mb-1.5">Краткое описание задачи</label>
-                <textarea id="calcDetails" rows="3" placeholder="Например: частный дом 80 м², нужна замена проводки и установка электрокотла..." class="w-full px-4 py-3 rounded-xl bg-graphite border border-white/15 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-amberAccent transition-colors resize-none"></textarea>
-              </div>
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
-                <button type="button" id="sendWhatsAppCalc" class="flex items-center justify-center gap-2 px-4 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm transition-all active:scale-95 shadow-lg shadow-emerald-900/30">
-                  WhatsApp
-                </button>
-                <button type="button" id="sendTelegramCalc" class="flex items-center justify-center gap-2 px-4 py-3.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-semibold text-sm transition-all active:scale-95 shadow-lg shadow-sky-900/30">
-                  Telegram
-                </button>
+              <div id="calcSelectedList" class="max-h-[320px] overflow-y-auto pr-1 space-y-2">
               </div>
             </div>
+
+            <!-- Комментарий / адрес / площадь -->
+            <div class="mt-4">
+              <label for="calcDetails" class="block text-xs font-medium text-gray-300 mb-1.5">Адрес, площадь или уточнение по объекту</label>
+              <textarea id="calcDetails" rows="2" placeholder="Например: Свободный, дом из бруса 60 м², нужно развести проводку и повесить электрокотел..." class="w-full px-3.5 py-2.5 rounded-xl bg-graphite border border-white/15 text-white placeholder-gray-500 text-xs sm:text-sm focus:outline-none focus:border-amberAccent transition-colors resize-none"></textarea>
+            </div>
+
+            <!-- Итоговая сумма -->
+            <div class="mt-4 p-4 rounded-2xl bg-graphite/90 border border-amberAccent/30">
+              <div class="flex items-baseline justify-between gap-2">
+                <span class="text-xs sm:text-sm text-gray-300 font-medium">Итого за работу:</span>
+                <span id="calcTotalSum" class="font-display font-extrabold text-2xl sm:text-3xl text-amberAccent">0 ₽</span>
+              </div>
+              <p class="text-[11px] text-gray-400 mt-1">
+                Ориентировочный расчёт без материалов. Точная смета — после осмотра.
+              </p>
+            </div>
+
+            <!-- Кнопки отправки сметы -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mt-4">
+              <button type="button" id="sendWhatsAppCalc" class="flex items-center justify-center gap-2 px-4 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm transition-all active:scale-95 shadow-lg shadow-emerald-900/30">
+                Отправить в WhatsApp
+              </button>
+              <button type="button" id="sendTelegramCalc" class="flex items-center justify-center gap-2 px-4 py-3.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-semibold text-sm transition-all active:scale-95 shadow-lg shadow-sky-900/30">
+                Отправить в Telegram
+              </button>
+            </div>
+            <button type="button" id="copyEstimateBtn" class="mt-2.5 w-full py-2.5 px-4 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-gray-300 hover:text-white text-xs font-medium transition-colors flex items-center justify-center gap-2">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+              </svg>
+              Скопировать расчёт текстом
+            </button>
           </div>
         </div>
       </div>
@@ -435,7 +451,7 @@
           <span class="text-amberAccent font-semibold text-xs sm:text-sm uppercase tracking-widest">Всегда на связи</span>
           <h2 class="font-display font-bold text-3xl sm:text-4xl text-white mt-2">Контакты</h2>
           <p class="text-gray-400 mt-3 text-sm sm:text-base">
-            По вопросам работ, сотрудничества или творчества — выбирай любой удобный способ связи.
+            По вопросам электромонтажа, отопления, сотрудничества или творчества — выбирай любой удобный способ связи.
           </p>
         </div>
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
@@ -520,9 +536,24 @@
 
   <footer class="border-t border-white/10 bg-[#090b0e] py-8 sm:py-10">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <p class="text-sm text-gray-400">
+      <p class="text-sm text-gray-400 text-center sm:text-left">
         © 2026 Алексей Барков. Все права защищены.
       </p>
+
+      <!-- Счётчик посещений сайта -->
+      <div id="visitorCounterBadge" class="inline-flex items-center gap-2.5 px-4 py-2 rounded-2xl glass-card border border-white/10 text-xs text-gray-300 shadow-md" title="Счётчик посещений сайта">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+        </span>
+        <svg class="w-4 h-4 text-amberAccent shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+        </svg>
+        <span class="text-gray-400">Посещений:</span>
+        <strong id="visitorCountValue" class="font-mono font-bold text-amberAccent text-sm">...</strong>
+      </div>
+
       <div class="font-signature text-2xl sm:text-3xl text-amberAccent/85 tracking-wide select-none -rotate-2">
         Барков А.А.
       </div>
@@ -615,7 +646,110 @@
       phoneClean: '79990000000',
       telegramUsername: 'barkov_alexey',
       youtubeChannelUrl: 'https://youtube.com/',
-      googleSheetUrl: 'https://docs.google.com/spreadsheets/d/17SrbAKSlRA6s3Cn4P8BMnVRsdFjaoxRF36xgWxst4JI/edit'
+      googleSheetUrl: 'https://docs.google.com/spreadsheets/d/17SrbAKSlRA6s3Cn4P8BMnVRsdFjaoxRF36xgWxst4JI/edit',
+      // Уникальный ключ для облачного счётчика посещений на GitHub Pages
+      counterNamespace: 'barkovaleksej97-hue.github.io',
+      counterKey: 'site1-visits',
+      // Если захотите подключить Яндекс.Метрику, впишите сюда её номер (например: '98765432')
+      yandexMetrikaId: ''
+    };
+
+    // Актуальный прайс-лист 2026 года по Амурской области (только за работу, в рублях)
+    const PRICE_DATA_2026 = {
+      brick: {
+        title: '⚡ Электропроводка в кирпичном и бетонном помещении',
+        subtitle: 'Скрытый монтаж в штробах по стандартам ПУЭ • Прайс 2026 г.',
+        items: [
+          { id: 'b_dem_point', name: 'Демонтаж старой розетки, выключателя или светильника', desc: 'Аккуратный демонтаж с изоляцией жил', unit: 'шт.', price: 150, priceLabel: 'от 150 ₽' },
+          { id: 'b_dem_cable', name: 'Демонтаж старой открытой проводки', desc: 'Снятие старого кабеля и крепежа', unit: 'п.м.', price: 60, priceLabel: 'от 60 ₽' },
+          { id: 'b_chase_brick', name: 'Штробление стен под кабель (кирпич, газоблок, гипс)', desc: 'Штроборезом с пылесосом', unit: 'п.м.', price: 300, priceLabel: 'от 300 ₽' },
+          { id: 'b_chase_concrete', name: 'Штробление стен под кабель (бетон, монолит)', desc: 'Алмазная резка по несущим стенам', unit: 'п.м.', price: 450, priceLabel: 'от 450 ₽' },
+          { id: 'b_hole_brick', name: 'Высверливание лунки под подрозетник (кирпич, газоблок)', desc: 'Алмазной коронкой Ø68 мм', unit: 'шт.', price: 350, priceLabel: 'от 350 ₽' },
+          { id: 'b_hole_concrete', name: 'Высверливание лунки под подрозетник (бетон)', desc: 'Алмазной коронкой по бетону', unit: 'шт.', price: 480, priceLabel: 'от 480 ₽' },
+          { id: 'b_box_install', name: 'Установка и вмазка подрозетника в готовую лунку', desc: 'По уровню на гипсовую смесь', unit: 'шт.', price: 150, priceLabel: 'от 150 ₽' },
+          { id: 'b_cable_chase', name: 'Прокладка кабеля (ВВГнг-LS) в штробе / по потолку', desc: 'Крепление площадками / дюбель-хомутами', unit: 'п.м.', price: 120, priceLabel: 'от 120 ₽' },
+          { id: 'b_cable_corrug', name: 'Прокладка кабеля в гофротрубе на клипсах', desc: 'Монтаж по потолку или стенам', unit: 'п.м.', price: 150, priceLabel: 'от 150 ₽' },
+          { id: 'b_chase_fill', name: 'Черновая заделка штроб штукатурной смесью', desc: 'Фиксация кабеля в штробе', unit: 'п.м.', price: 100, priceLabel: 'от 100 ₽' },
+          { id: 'b_drill_wall', name: 'Сквозное бурение стены под кабель (кирпич / бетон)', desc: 'Проход межкомнатных и капитальных стен', unit: 'отв.', price: 450, priceLabel: 'от 450 / 700 ₽' },
+          { id: 'b_jbox', name: 'Установка и расключение внутренней распредкоробки', desc: 'Надёжное соединение (сварка / опрессовка)', unit: 'шт.', price: 800, priceLabel: 'от 800 ₽' },
+          { id: 'b_socket', name: 'Установка механизма внутренней розетки / выключателя', desc: 'Подключение и монтаж рамки', unit: 'шт.', price: 300, priceLabel: 'от 300 ₽' },
+          { id: 'b_switch_pass', name: 'Установка проходного или перекрёстного выключателя', desc: 'Управление светом из двух и более мест', unit: 'шт.', price: 750, priceLabel: 'от 750 ₽' },
+          { id: 'b_power_socket', name: 'Установка силовой розетки (электроплита, варочная 220/380 В)', desc: 'Подключение мощных потребителей', unit: 'шт.', price: 700, priceLabel: 'от 700 ₽' },
+          { id: 'b_shield_niche', name: 'Выштрабливание ниши под встраиваемый электрощит', desc: 'Кирпич от 3 500 ₽ / бетон от 5 000 ₽', unit: 'шт.', price: 3500, priceLabel: 'от 3 500 ₽' },
+          { id: 'b_shield_mod', name: 'Сборка и расключение электрощита (за 1 модуль)', desc: 'Аккуратная разводка, маркировка линий', unit: 'модуль', price: 450, priceLabel: 'от 450 ₽' },
+          { id: 'b_breaker', name: 'Установка однополюсного / двухполюсного автомата', desc: 'Монтаж на DIN-рейку и подключение', unit: 'шт.', price: 300, priceLabel: 'от 300 / 450 ₽' },
+          { id: 'b_rcd', name: 'Установка УЗО / дифавтомата / реле напряжения', desc: 'Защита от утечки тока и скачков напряжения', unit: 'шт.', price: 650, priceLabel: 'от 650 ₽' },
+          { id: 'b_light', name: 'Монтаж точечного светильника / бра / люстры', desc: 'Светильник от 350 ₽, бра от 550 ₽, люстра от 1 500 ₽', unit: 'шт.', price: 350, priceLabel: 'от 350 ₽' }
+        ]
+      },
+      wood: {
+        title: '🪵 Электропроводка в деревянном помещении',
+        subtitle: 'Открытый монтаж по сгораемым конструкциям (брус, бревно, каркас) по ПУЭ • Прайс 2026 г.',
+        items: [
+          { id: 'w_channel', name: 'Монтаж пластикового кабель-канала (белый / под дерево)', desc: 'Ровная подгонка стыков и углов', unit: 'п.м.', price: 200, priceLabel: 'от 200 ₽' },
+          { id: 'w_cable_ch', name: 'Прокладка кабеля в смонтированном кабель-канале', desc: 'Укладка негорючего кабеля ВВГнг-LS', unit: 'п.м.', price: 120, priceLabel: 'от 120 ₽' },
+          { id: 'w_metal_hose', name: 'Прокладка кабеля в металлорукаве / негорючей гофре', desc: 'Крепление на клипсы / скобы по дереву', unit: 'п.м.', price: 170, priceLabel: 'от 170 ₽' },
+          { id: 'w_retro', name: 'Монтаж ретро-проводки на керамических изоляторах', desc: 'Витой кабель в декоративной оплётке', unit: 'п.м.', price: 350, priceLabel: 'от 350 ₽' },
+          { id: 'w_sleeve', name: 'Проход кабеля через деревянную стену в металлической гильзе', desc: 'Пожаробезопасный узел прохода по ПУЭ', unit: 'шт.', price: 750, priceLabel: 'от 750 ₽' },
+          { id: 'w_socket', name: 'Установка накладной розетки / выключателя', desc: 'Монтаж на негорючую подложку', unit: 'шт.', price: 350, priceLabel: 'от 350 ₽' },
+          { id: 'w_retro_sock', name: 'Установка накладной ретро-розетки / ретро-выключателя', desc: 'На деревянную или керамическую рамку', unit: 'шт.', price: 500, priceLabel: 'от 500 ₽' },
+          { id: 'w_jbox', name: 'Монтаж и расключение наружной распредкоробки', desc: 'На негорючее основание, опрессовка / сварка', unit: 'шт.', price: 700, priceLabel: 'от 700 ₽' },
+          { id: 'w_shield', name: 'Монтаж и сборка накладного распределительного щита', desc: 'Щит на 12–24 модуля с автоматикой и маркировкой', unit: 'шт.', price: 3500, priceLabel: 'от 3 500 ₽' },
+          { id: 'w_ground', name: 'Монтаж контура защитного заземления у частного дома', desc: 'Забивка электродов, обварка полосой, ввод в щит', unit: 'компл.', price: 8000, priceLabel: 'от 8 000 ₽' }
+        ]
+      },
+      heating: {
+        title: '🔥 Установка и подключение электроотопления',
+        subtitle: 'Монтаж электрокотлов, радиаторных систем, конвекторов и тёплых полов • Прайс 2026 г.',
+        items: [
+          { id: 'h_boiler_el', name: 'Навеска и подключение электрокотла к электросети (220/380 В)', desc: 'Крепление на стену и силовое подключение', unit: 'шт.', price: 5500, priceLabel: 'от 5 500 ₽' },
+          { id: 'h_boiler_full', name: 'Монтаж электрокотла с полной гидравлической обвязкой', desc: 'Насос, группа безопасности, расширительный бак', unit: 'компл.', price: 15000, priceLabel: 'от 15 000 ₽' },
+          { id: 'h_power_line', name: 'Прокладка отдельной силовой линии от щита к котлу', desc: 'Кабель нужного сечения, выделенный автомат и УЗО', unit: 'линия', price: 3500, priceLabel: 'от 3 500 ₽' },
+          { id: 'h_radiator', name: 'Монтаж и обвязка радиатора отопления', desc: 'Навеска, установка кранов Маевского и запорной арматуры', unit: 'шт.', price: 3500, priceLabel: 'от 3 500 ₽' },
+          { id: 'h_pipes', name: 'Прокладка магистральных труб отопления', desc: 'Полипропилен / металлопластик, двухтрубная или лучевая схема', unit: 'п.м.', price: 350, priceLabel: 'от 350 ₽' },
+          { id: 'h_startup', name: 'Опрессовка, заполнение системы теплоносителем и пусконаладка', desc: 'Проверка герметичности и балансировка контуров', unit: 'услуга', price: 4500, priceLabel: 'от 4 500 ₽' },
+          { id: 'h_convector', name: 'Установка и подключение настенного электроконвектора', desc: 'Монтаж на стену с подключением к отдельной линии', unit: 'шт.', price: 1500, priceLabel: 'от 1 500 ₽' },
+          { id: 'h_warm_floor', name: 'Укладка электрического тёплого пола', desc: 'Нагревательный мат или ИК-плёнка', unit: 'м²', price: 900, priceLabel: 'от 900 ₽' },
+          { id: 'h_thermostat', name: 'Установка и подключение терморегулятора с датчиком пола', desc: 'Монтаж в подрозетник и настройка', unit: 'шт.', price: 1000, priceLabel: 'от 1 000 ₽' }
+        ]
+      }
+    };
+
+    const CALCULATOR_PRESETS = {
+      brick: {
+        label: 'Квартира / кирпич (базовый расчёт)',
+        items: {
+          b_chase_brick: 25,
+          b_hole_brick: 15,
+          b_box_install: 15,
+          b_cable_chase: 60,
+          b_jbox: 4,
+          b_socket: 15,
+          b_shield_mod: 12
+        }
+      },
+      wood: {
+        label: 'Деревянный дом (базовый расчёт)',
+        items: {
+          w_channel: 55,
+          w_cable_ch: 65,
+          w_sleeve: 5,
+          w_socket: 14,
+          w_jbox: 4,
+          w_shield: 1,
+          w_ground: 1
+        }
+      },
+      heating: {
+        label: 'Электроотопление дома (базовый расчёт)',
+        items: {
+          h_boiler_full: 1,
+          h_power_line: 1,
+          h_radiator: 5,
+          h_pipes: 35,
+          h_startup: 1
+        }
+      }
     };
 
     const CACHE_KEY = 'barkov_site_videos_cache_v3';
@@ -631,6 +765,8 @@
     let loadedVideos = [];
     let activeGenre = 'all';
     let searchQuery = '';
+    let activePriceTab = 'brick';
+    let calcQuantities = {}; // { itemId: qty }
 
     document.addEventListener('DOMContentLoaded', () => {
       try {
@@ -638,17 +774,22 @@
         initMobileMenu();
         initVideoSearch();
         loadVideosFromSheet();
-        initServiceTabs();
-        initQuickCalculator();
+        initPriceAndCalculator();
         initContactForm();
         initCopyPhone();
         initVideoModal();
+        initVisitorCounter();
+        initYandexMetrika();
         initScrollTop();
         initScrollReveal();
       } catch (error) {
         console.error('Ошибка инициализации страницы:', error);
       }
     });
+
+    function formatRub(num) {
+      return Math.round(num).toLocaleString('ru-RU') + ' ₽';
+    }
 
     function escapeHtml(str) {
       return String(str || '')
@@ -657,6 +798,351 @@
         .replace(/>/g, '&gt;')
         .replace(/"/g, '&quot;')
         .replace(/'/g, '&#39;');
+    }
+
+    function getAllPriceItemsMap() {
+      const map = new Map();
+      Object.entries(PRICE_DATA_2026).forEach(([catKey, catData]) => {
+        catData.items.forEach(item => {
+          map.set(item.id, { ...item, category: catKey });
+        });
+      });
+      return map;
+    }
+
+    function initPriceAndCalculator() {
+      const tabButtons = document.querySelectorAll('.price-tab-btn');
+      tabButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          activePriceTab = btn.dataset.priceTab;
+          tabButtons.forEach(b => {
+            b.className = 'price-tab-btn px-4 py-3 rounded-xl text-xs sm:text-sm font-bold transition-all text-gray-300 hover:text-white';
+          });
+          btn.className = 'price-tab-btn px-4 py-3 rounded-xl text-xs sm:text-sm font-bold transition-all bg-amberAccent text-graphite shadow-md';
+          renderPriceTable();
+        });
+      });
+
+      document.querySelectorAll('.preset-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const presetKey = btn.dataset.preset;
+          const preset = CALCULATOR_PRESETS[presetKey];
+          if (!preset) return;
+          calcQuantities = { ...preset.items };
+          if (PRICE_DATA_2026[presetKey]) {
+            activePriceTab = presetKey;
+            tabButtons.forEach(b => {
+              const isMatch = b.dataset.priceTab === presetKey;
+              b.className = isMatch
+                ? 'price-tab-btn px-4 py-3 rounded-xl text-xs sm:text-sm font-bold transition-all bg-amberAccent text-graphite shadow-md'
+                : 'price-tab-btn px-4 py-3 rounded-xl text-xs sm:text-sm font-bold transition-all text-gray-300 hover:text-white';
+            });
+            renderPriceTable();
+          }
+          renderCalculator();
+          showToast(`Загружен шаблон: ${preset.label}`);
+        });
+      });
+
+      document.getElementById('resetCalcBtn').addEventListener('click', () => {
+        calcQuantities = {};
+        document.getElementById('calcDetails').value = '';
+        renderCalculator();
+        renderPriceTable();
+        showToast('Расчёт очищен');
+      });
+
+      document.getElementById('sendWhatsAppCalc').addEventListener('click', () => {
+        const text = buildEstimateMessage();
+        window.open(`https://wa.me/${SITE_CONFIG.phoneClean}?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
+        showToast('Открываем WhatsApp с готовым расчётом...');
+      });
+
+      document.getElementById('sendTelegramCalc').addEventListener('click', () => {
+        const text = buildEstimateMessage();
+        window.open(`https://t.me/${SITE_CONFIG.telegramUsername}?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
+        showToast('Открываем Telegram с готовым расчётом...');
+      });
+
+      document.getElementById('copyEstimateBtn').addEventListener('click', async () => {
+        const text = buildEstimateMessage();
+        try {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            await navigator.clipboard.writeText(text);
+          } else {
+            const temp = document.createElement('textarea');
+            temp.value = text;
+            document.body.appendChild(temp);
+            temp.select();
+            document.execCommand('copy');
+            document.body.removeChild(temp);
+          }
+          showToast('Расчёт скопирован в буфер обмена');
+        } catch (err) {
+          showToast('Не удалось скопировать расчёт');
+        }
+      });
+
+      renderPriceTable();
+      renderCalculator();
+    }
+
+    function renderPriceTable() {
+      const cat = PRICE_DATA_2026[activePriceTab];
+      if (!cat) return;
+      document.getElementById('priceTableTitle').textContent = cat.title;
+      document.getElementById('priceTableSubtitle').textContent = cat.subtitle;
+
+      const container = document.getElementById('priceListContainer');
+      container.innerHTML = '';
+
+      cat.items.forEach(item => {
+        const currentQty = calcQuantities[item.id] || 0;
+        const row = document.createElement('div');
+        row.className = 'p-4 sm:px-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-white/[0.025] transition-colors';
+
+        row.innerHTML = `
+          <div class="min-w-0 flex-1">
+            <p class="font-semibold text-white text-sm leading-snug">${escapeHtml(item.name)}</p>
+            <p class="text-xs text-gray-400 mt-0.5">${escapeHtml(item.desc)}</p>
+          </div>
+          <div class="flex items-center justify-between sm:justify-end gap-3 shrink-0 pt-1 sm:pt-0">
+            <div class="text-left sm:text-right">
+              <span class="text-amberAccent font-display font-bold text-sm sm:text-base whitespace-nowrap block">${escapeHtml(item.priceLabel)}</span>
+              <span class="text-[11px] text-gray-500">за 1 ${escapeHtml(item.unit)}</span>
+            </div>
+            <button type="button" data-add-id="${escapeHtml(item.id)}" class="add-to-calc-btn px-3 py-2 rounded-xl text-xs font-bold transition-all active:scale-95 whitespace-nowrap ${
+              currentQty > 0
+                ? 'bg-emerald-600/20 text-emerald-300 border border-emerald-500/40 hover:bg-emerald-600/30'
+                : 'bg-amberAccent/15 text-amberAccent border border-amberAccent/35 hover:bg-amberAccent hover:text-graphite'
+            }">
+              ${currentQty > 0 ? `В расчёте (${currentQty})` : '+ В расчёт'}
+            </button>
+          </div>
+        `;
+        container.appendChild(row);
+      });
+
+      container.querySelectorAll('.add-to-calc-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const id = btn.dataset.addId;
+          const step = getDefaultStepForItem(id);
+          calcQuantities[id] = (calcQuantities[id] || 0) + step;
+          renderPriceTable();
+          renderCalculator();
+          const item = getAllPriceItemsMap().get(id);
+          if (item) {
+            showToast(`Добавлено: ${item.name} (+${step} ${item.unit})`);
+          }
+        });
+      });
+    }
+
+    function getDefaultStepForItem(id) {
+      // Для погонных метров кабеля/штробы/труб удобно добавлять сразу по 5 или 10 м, а в калькуляторе можно ставить любое точное число
+      if (id.includes('cable') || id.includes('channel') || id.includes('metal_hose') || id.includes('retro') || id.includes('pipes')) {
+        return 10;
+      }
+      if (id.includes('chase')) {
+        return 5;
+      }
+      return 1;
+    }
+
+    function renderCalculator() {
+      const listEl = document.getElementById('calcSelectedList');
+      const countEl = document.getElementById('calcItemsCount');
+      const totalEl = document.getElementById('calcTotalSum');
+      const itemsMap = getAllPriceItemsMap();
+
+      const activeEntries = Object.entries(calcQuantities).filter(([, qty]) => qty > 0);
+      countEl.textContent = `${activeEntries.length} поз.`;
+
+      if (activeEntries.length === 0) {
+        totalEl.textContent = '0 ₽';
+        listEl.innerHTML = `
+          <div class="rounded-2xl bg-graphite/70 border border-dashed border-white/15 p-4 text-center">
+            <p class="text-xs sm:text-sm text-gray-300 font-medium mb-1">Список работ пока пуст</p>
+            <p class="text-[11px] text-gray-400 leading-relaxed">
+              Нажмите <span class="text-amberAccent font-semibold">«+ В расчёт»</span> рядом с нужными работами в прайсе слева или выберите готовый шаблон выше.
+            </p>
+          </div>
+        `;
+        return;
+      }
+
+      let grandTotal = 0;
+      listEl.innerHTML = '';
+
+      activeEntries.forEach(([id, qty]) => {
+        const item = itemsMap.get(id);
+        if (!item) return;
+        const lineSum = item.price * qty;
+        grandTotal += lineSum;
+
+        const card = document.createElement('div');
+        card.className = 'p-3 rounded-2xl bg-graphite/90 border border-white/10 space-y-2';
+        card.innerHTML = `
+          <div class="flex items-start justify-between gap-2">
+            <p class="text-xs font-semibold text-white leading-snug flex-1">${escapeHtml(item.name)}</p>
+            <button type="button" data-remove-id="${escapeHtml(id)}" aria-label="Удалить позицию" class="p-1 rounded-lg text-gray-500 hover:text-red-400 hover:bg-white/5 transition-colors shrink-0">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+              </svg>
+            </button>
+          </div>
+          <div class="flex items-center justify-between gap-2">
+            <div class="inline-flex items-center rounded-xl bg-card border border-white/10 overflow-hidden">
+              <button type="button" data-dec-id="${escapeHtml(id)}" class="w-7 h-7 flex items-center justify-center text-gray-300 hover:bg-white/10 hover:text-white font-bold text-sm transition-colors">−</button>
+              <input type="number" min="0" step="1" data-input-id="${escapeHtml(id)}" value="${qty}" aria-label="Количество (${escapeHtml(item.unit)})" class="w-12 h-7 bg-transparent text-center text-xs font-bold text-white focus:outline-none">
+              <button type="button" data-inc-id="${escapeHtml(id)}" class="w-7 h-7 flex items-center justify-center text-gray-300 hover:bg-white/10 hover:text-white font-bold text-sm transition-colors">+</button>
+            </div>
+            <span class="text-[11px] text-gray-400">${escapeHtml(item.unit)} × ${item.price.toLocaleString('ru-RU')} ₽</span>
+            <span class="text-xs sm:text-sm font-display font-bold text-amberAccent whitespace-nowrap">${formatRub(lineSum)}</span>
+          </div>
+        `;
+        listEl.appendChild(card);
+      });
+
+      totalEl.textContent = formatRub(grandTotal);
+
+      listEl.querySelectorAll('[data-dec-id]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const id = btn.dataset.decId;
+          const next = (calcQuantities[id] || 0) - 1;
+          if (next <= 0) delete calcQuantities[id];
+          else calcQuantities[id] = next;
+          renderCalculator();
+          renderPriceTable();
+        });
+      });
+
+      listEl.querySelectorAll('[data-inc-id]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const id = btn.dataset.incId;
+          calcQuantities[id] = (calcQuantities[id] || 0) + 1;
+          renderCalculator();
+          renderPriceTable();
+        });
+      });
+
+      listEl.querySelectorAll('[data-input-id]').forEach(inp => {
+        inp.addEventListener('change', () => {
+          const id = inp.dataset.inputId;
+          const val = parseInt(inp.value, 10);
+          if (isNaN(val) || val <= 0) delete calcQuantities[id];
+          else calcQuantities[id] = val;
+          renderCalculator();
+          renderPriceTable();
+        });
+      });
+
+      listEl.querySelectorAll('[data-remove-id]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const id = btn.dataset.removeId;
+          delete calcQuantities[id];
+          renderCalculator();
+          renderPriceTable();
+        });
+      });
+    }
+
+    function buildEstimateMessage() {
+      const itemsMap = getAllPriceItemsMap();
+      const entries = Object.entries(calcQuantities).filter(([, qty]) => qty > 0);
+      const details = document.getElementById('calcDetails').value.trim();
+
+      let lines = ['Здравствуйте, Алексей! Хочу заказать расчёт работ (по прайсу 2026):', ''];
+      let total = 0;
+
+      if (entries.length > 0) {
+        entries.forEach(([id, qty], index) => {
+          const item = itemsMap.get(id);
+          if (!item) return;
+          const sum = item.price * qty;
+          total += sum;
+          lines.push(`${index + 1}. ${item.name} — ${qty} ${item.unit} × ${item.price.toLocaleString('ru-RU')} ₽ = ${sum.toLocaleString('ru-RU')} ₽`);
+        });
+        lines.push('');
+        lines.push(`Итого ориентировочно за работу: ${total.toLocaleString('ru-RU')} ₽`);
+      } else {
+        lines.push('Нужна консультация и замер по объекту.');
+      }
+
+      if (details) {
+        lines.push(`Комментарий по объекту: ${details}`);
+      }
+      return lines.join('\n');
+    }
+
+    // Облачный счётчик посещений для GitHub Pages с защитой от накрутки при обновлении вкладки
+    async function initVisitorCounter() {
+      const valEl = document.getElementById('visitorCountValue');
+      if (!valEl) return;
+
+      const sessionFlag = 'barkov_site1_visit_counted_v1';
+      const localBackupKey = 'barkov_site1_visits_local_v1';
+      const alreadyCounted = sessionStorage.getItem(sessionFlag) === '1';
+      const op = alreadyCounted ? 'get' : 'hit';
+
+      const ns = encodeURIComponent(SITE_CONFIG.counterNamespace);
+      const key = encodeURIComponent(SITE_CONFIG.counterKey);
+      const primaryUrl = `https://abacus.jasoncameron.dev/${op}/${ns}/${key}`;
+      const fallbackUrl = `https://countapi.mileshilliard.com/api/v1/${op}/barkovaleksej97_site1_visits`;
+
+      const displayCount = (num) => {
+        const cleanNum = Number(num);
+        if (!isNaN(cleanNum) && cleanNum >= 0) {
+          valEl.textContent = cleanNum.toLocaleString('ru-RU');
+          try { localStorage.setItem(localBackupKey, String(cleanNum)); } catch (e) {}
+          return true;
+        }
+        return false;
+      };
+
+      try {
+        const res = await fetch(primaryUrl, { cache: 'no-store' });
+        if (res.ok) {
+          const data = await res.json();
+          if (displayCount(data.value)) {
+            if (!alreadyCounted) sessionStorage.setItem(sessionFlag, '1');
+            return;
+          }
+        }
+      } catch (e) {}
+
+      try {
+        const res2 = await fetch(fallbackUrl, { cache: 'no-store' });
+        if (res2.ok) {
+          const data2 = await res2.json();
+          if (displayCount(data2.value)) {
+            if (!alreadyCounted) sessionStorage.setItem(sessionFlag, '1');
+            return;
+          }
+        }
+      } catch (e) {}
+
+      // Резервный локальный счётчик, если внешние сервисы временно недоступны
+      let localVal = parseInt(localStorage.getItem(localBackupKey) || '1', 10);
+      if (!alreadyCounted) {
+        localVal += 1;
+        sessionStorage.setItem(sessionFlag, '1');
+      }
+      displayCount(localVal);
+    }
+
+    // Опциональное подключение Яндекс.Метрики (если в SITE_CONFIG.yandexMetrikaId указан номер счётчика)
+    function initYandexMetrika() {
+      const id = String(SITE_CONFIG.yandexMetrikaId || '').trim();
+      if (!id || !/^\d+$/.test(id)) return;
+      const counterId = Number(id);
+      (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a);
+      })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js', 'ym');
+      window.ym(counterId, 'init', { clickmap: true, trackLinks: true, accurateTrackBounce: true, webvisor: true });
     }
 
     function extractYouTubeId(input) {
@@ -679,13 +1165,11 @@
       if (!input) return null;
       let str = String(input).trim();
 
-      // Если вставлен HTML-код <iframe> из ВК
       const iframeMatch = str.match(/src=["']([^"']+)["']/i);
       if (iframeMatch && iframeMatch[1]) {
         str = iframeMatch[1].replace(/&amp;/g, '&').trim();
       }
 
-      // Прямая ссылка на плеер video_ext.php (работает и с hash для видео по ссылке)
       if (/video_ext\.php/i.test(str)) {
         const cleanUrl = str.startsWith('//') ? 'https:' + str : str;
         const oidMatch = cleanUrl.match(/[?&]oid=(-?\d+)/i);
@@ -699,7 +1183,6 @@
         return { embedUrl, watchUrl };
       }
 
-      // Любая обычная ссылка vk.com, m.vk.com, vk.ru, vkvideo.ru (видео и клипы)
       if (/(?:vk\.com|vk\.ru|vkvideo\.ru)/i.test(str)) {
         const idMatch = str.match(/(?:video|clip)(-?\d+)_(\d+)/i);
         if (idMatch) {
@@ -720,7 +1203,6 @@
       if (!input) return null;
       let str = String(input).trim();
 
-      // Если вставлен HTML-код <iframe> с Google Диска
       const iframeMatch = str.match(/src=["']([^"']+)["']/i);
       if (iframeMatch && iframeMatch[1]) {
         str = iframeMatch[1].replace(/&amp;/g, '&').trim();
@@ -1094,37 +1576,6 @@
       document.getElementById('closeModalBtn').addEventListener('click', closeModal);
       modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
       document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal(); });
-    }
-
-    function initServiceTabs() {
-      const tabs = document.querySelectorAll('.service-tab-btn');
-      const panels = document.querySelectorAll('.service-panel');
-      tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-          const target = tab.dataset.serviceTab;
-          tabs.forEach(t => { t.className = 'service-tab-btn flex-1 sm:flex-none px-5 py-3 rounded-xl text-sm font-bold transition-all text-gray-300 hover:text-white'; });
-          tab.className = 'service-tab-btn flex-1 sm:flex-none px-5 py-3 rounded-xl text-sm font-bold transition-all bg-amberAccent text-graphite shadow-md';
-          panels.forEach(panel => panel.classList.toggle('hidden', panel.id !== `tab-${target}`));
-        });
-      });
-    }
-
-    function initQuickCalculator() {
-      const categoryEl = document.getElementById('calcCategory');
-      const detailsEl = document.getElementById('calcDetails');
-      const buildMessage = () => {
-        let text = `Здравствуйте, Алексей! Интересует услуга: ${categoryEl.value}.`;
-        if (detailsEl.value.trim()) text += `\nЗадача: ${detailsEl.value.trim()}`;
-        return text;
-      };
-      document.getElementById('sendWhatsAppCalc').addEventListener('click', () => {
-        window.open(`https://wa.me/${SITE_CONFIG.phoneClean}?text=${encodeURIComponent(buildMessage())}`, '_blank', 'noopener');
-        showToast('Открываем WhatsApp с готовой заявкой...');
-      });
-      document.getElementById('sendTelegramCalc').addEventListener('click', () => {
-        window.open(`https://t.me/${SITE_CONFIG.telegramUsername}?text=${encodeURIComponent(buildMessage())}`, '_blank', 'noopener');
-        showToast('Открываем Telegram с готовой заявкой...');
-      });
     }
 
     function initCopyPhone() {
