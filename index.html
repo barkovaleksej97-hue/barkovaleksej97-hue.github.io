@@ -618,7 +618,7 @@
       googleSheetUrl: 'https://docs.google.com/spreadsheets/d/17SrbAKSlRA6s3Cn4P8BMnVRsdFjaoxRF36xgWxst4JI/edit'
     };
 
-    const CACHE_KEY = 'barkov_site_videos_cache_v2';
+    const CACHE_KEY = 'barkov_site_videos_cache_v3';
     const FALLBACK_GRADIENTS = [
       'from-amber-600/80 via-orange-900/80 to-graphite',
       'from-red-600/80 via-rose-950/80 to-graphite',
@@ -716,6 +716,34 @@
       return null;
     }
 
+    function extractGoogleDriveVideo(input) {
+      if (!input) return null;
+      let str = String(input).trim();
+
+      // Если вставлен HTML-код <iframe> с Google Диска
+      const iframeMatch = str.match(/src=["']([^"']+)["']/i);
+      if (iframeMatch && iframeMatch[1]) {
+        str = iframeMatch[1].replace(/&amp;/g, '&').trim();
+      }
+
+      if (/drive\.google\.com/i.test(str)) {
+        const idMatch =
+          str.match(/\/file\/d\/([a-zA-Z0-9_-]+)/i) ||
+          str.match(/\/d\/([a-zA-Z0-9_-]+)/i) ||
+          str.match(/[?&]id=([a-zA-Z0-9_-]+)/i);
+
+        if (idMatch && idMatch[1]) {
+          const fileId = idMatch[1];
+          return {
+            embedUrl: `https://drive.google.com/file/d/${fileId}/preview`,
+            watchUrl: `https://drive.google.com/file/d/${fileId}/view`,
+            thumbUrl: `https://drive.google.com/thumbnail?id=${fileId}&sz=w800`
+          };
+        }
+      }
+      return null;
+    }
+
     function renderSkeletons(count = 6) {
       const grid = document.getElementById('videoGrid');
       grid.innerHTML = Array.from({ length: count }).map(() => `
@@ -783,9 +811,10 @@
             const extraCol = getCell(row, 6);
 
             const vkVideo = extractVKVideo(rawLink) || extractVKVideo(extraCol);
+            const gdriveVideo = extractGoogleDriveVideo(rawLink) || extractGoogleDriveVideo(extraCol);
             const youtubeId = extractYouTubeId(rawLink);
             const isShorts = /youtube\.com\/shorts\//i.test(rawLink);
-            const customThumb = (extraCol && !extractVKVideo(extraCol) && /^https?:\/\//i.test(extraCol)) ? extraCol : '';
+            const customThumb = (extraCol && !extractVKVideo(extraCol) && !extractGoogleDriveVideo(extraCol) && /^https?:\/\//i.test(extraCol)) ? extraCol : '';
 
             return {
               id: idx + 1,
@@ -799,12 +828,15 @@
               gradient: FALLBACK_GRADIENTS[idx % FALLBACK_GRADIENTS.length],
               vkEmbedUrl: vkVideo ? vkVideo.embedUrl : '',
               vkWatchUrl: vkVideo ? vkVideo.watchUrl : '',
+              gdriveEmbedUrl: gdriveVideo ? gdriveVideo.embedUrl : '',
+              gdriveWatchUrl: gdriveVideo ? gdriveVideo.watchUrl : '',
+              gdriveThumb: gdriveVideo ? gdriveVideo.thumbUrl : '',
               customThumb,
               youtubeId,
               youtubeUrl: rawLink || SITE_CONFIG.youtubeChannelUrl
             };
           })
-          .filter(v => (v.title || v.vkEmbedUrl || v.youtubeId) && !v.hidden);
+          .filter(v => (v.title || v.vkEmbedUrl || v.gdriveEmbedUrl || v.youtubeId) && !v.hidden);
 
         if (freshVideos.length === 0) {
           if (!hasCache) {
@@ -948,15 +980,17 @@
         const card = document.createElement('article');
         card.className = 'group cursor-pointer glass-card rounded-3xl overflow-hidden border border-white/10 hover:border-amberAccent/50 transition-all duration-300 shadow-lg hover:-translate-y-1 flex flex-col';
 
-        const thumbSrc = video.customThumb || (video.youtubeId ? `https://i.ytimg.com/vi/${video.youtubeId}/hqdefault.jpg` : '');
+        const thumbSrc = video.customThumb || (video.youtubeId ? `https://i.ytimg.com/vi/${video.youtubeId}/hqdefault.jpg` : (video.gdriveThumb || ''));
         const thumbHtml = thumbSrc
-          ? `<img src="${escapeHtml(thumbSrc)}" alt="${escapeHtml(video.title)}" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          ? `<img src="${escapeHtml(thumbSrc)}" alt="${escapeHtml(video.title)}" loading="lazy" onerror="this.style.display='none'" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
              <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-black/45"></div>`
           : `<div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.25) 1px, transparent 0); background-size: 18px 18px;"></div>`;
 
         const rightBadges = [];
         if (video.vkEmbedUrl) {
           rightBadges.push('<span class="px-2.5 py-1 rounded-lg bg-sky-600/90 text-[11px] font-bold uppercase tracking-wider text-white shadow-sm">VK</span>');
+        } else if (video.gdriveEmbedUrl) {
+          rightBadges.push('<span class="px-2.5 py-1 rounded-lg bg-emerald-600/90 text-[11px] font-bold uppercase tracking-wider text-white shadow-sm">Drive</span>');
         } else if (video.isShorts) {
           rightBadges.push('<span class="px-2.5 py-1 rounded-lg bg-redAccent/90 text-[11px] font-bold uppercase tracking-wider text-white shadow-sm">Shorts</span>');
         }
@@ -964,7 +998,13 @@
           rightBadges.push(`<span class="px-2.5 py-1 rounded-lg bg-black/60 backdrop-blur-sm text-xs font-mono text-gray-200">${escapeHtml(video.duration)}</span>`);
         }
 
-        const playBtnBg = video.vkEmbedUrl ? 'bg-sky-600/90 group-hover:bg-sky-500' : 'bg-redAccent/90 group-hover:bg-redAccent';
+        const playBtnBg = video.vkEmbedUrl
+          ? 'bg-sky-600/90 group-hover:bg-sky-500'
+          : (video.gdriveEmbedUrl ? 'bg-emerald-600/90 group-hover:bg-emerald-500' : 'bg-redAccent/90 group-hover:bg-redAccent');
+
+        const footerTextColor = video.vkEmbedUrl
+          ? 'text-sky-400'
+          : (video.gdriveEmbedUrl ? 'text-emerald-400' : 'text-red-400');
 
         card.innerHTML = `
           <div class="relative aspect-video bg-gradient-to-br ${video.gradient} p-4 sm:p-5 flex flex-col justify-between overflow-hidden">
@@ -984,7 +1024,7 @@
               <p class="text-xs sm:text-sm text-gray-400 line-clamp-2 leading-relaxed">${escapeHtml(video.description)}</p>
             </div>
             <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-xs font-medium text-gray-400">
-              <span class="flex items-center gap-1.5 ${video.vkEmbedUrl ? 'text-sky-400' : 'text-red-400'}">
+              <span class="flex items-center gap-1.5 ${footerTextColor}">
                 <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                 Смотреть / слушать
               </span>
@@ -1003,6 +1043,7 @@
 
       const metaParts = [video.genreLabel];
       if (video.vkEmbedUrl) metaParts.push('VK Видео');
+      else if (video.gdriveEmbedUrl) metaParts.push('Google Диск');
       else if (video.isShorts) metaParts.push('Shorts');
       if (video.duration) metaParts.push(video.duration);
 
@@ -1015,6 +1056,11 @@
         modalLink.className = 'w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-semibold text-sm whitespace-nowrap transition-colors';
         modalLink.innerHTML = '<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Открыть в VK Видео';
         player.innerHTML = `<iframe class="w-full h-full" src="${escapeHtml(video.vkEmbedUrl)}" title="${escapeHtml(video.title)}" frameborder="0" allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;" allowfullscreen></iframe>`;
+      } else if (video.gdriveEmbedUrl) {
+        modalLink.href = video.gdriveWatchUrl;
+        modalLink.className = 'w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm whitespace-nowrap transition-colors';
+        modalLink.innerHTML = '<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Открыть на Google Диске';
+        player.innerHTML = `<iframe class="w-full h-full" src="${escapeHtml(video.gdriveEmbedUrl)}" title="${escapeHtml(video.title)}" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
       } else if (video.youtubeId) {
         modalLink.href = video.isShorts ? `https://www.youtube.com/shorts/${video.youtubeId}` : `https://www.youtube.com/watch?v=${video.youtubeId}`;
         modalLink.className = 'w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-redAccent hover:bg-red-500 text-white font-semibold text-sm whitespace-nowrap transition-colors';
@@ -1027,7 +1073,7 @@
         player.innerHTML = `
           <div class="w-full h-full bg-gradient-to-br ${video.gradient} flex flex-col items-center justify-center p-6 text-center">
             <p class="font-display font-bold text-white text-base sm:text-lg mb-1">Ссылка на видео не распознана</p>
-            <p class="text-xs sm:text-sm text-gray-200/80 max-w-md">Проверьте ссылку на VK Видео (или YouTube) в Google Таблице.</p>
+            <p class="text-xs sm:text-sm text-gray-200/80 max-w-md">Проверьте ссылку на VK Видео, YouTube или Google Диск в Google Таблице.</p>
           </div>`;
       }
 
