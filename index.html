@@ -305,7 +305,7 @@
         <div id="videoGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         </div>
 
-        <!-- Защищённая папка с фото сына (файлы хранятся в папке photos/ на GitHub) -->
+        <!-- Защищённая папка 1: Фотоальбом сына (файлы хранятся в папке 1/ на GitHub) -->
         <div id="sonPhotoFolderSection" class="reveal mt-12 glass-card rounded-3xl p-6 sm:p-8 border border-amberAccent/30 shadow-xl">
           <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
             <div class="flex items-start sm:items-center gap-4">
@@ -328,7 +328,7 @@
                   Фотоальбом сына
                 </h3>
                 <p class="text-xs sm:text-sm text-gray-400 mt-1">
-                  Открой папку по коду, чтобы увидеть год рождения и все фотографии.
+                  Открой папку по коду, чтобы увидеть все фотографии.
                 </p>
               </div>
             </div>
@@ -355,7 +355,7 @@
                 Подсказка: <span class="font-semibold text-white">введи имя</span>
               </p>
               <p id="sonFolderError" class="hidden text-xs text-red-400 font-medium mt-1">
-                Неверный ввод. Введи имя «Максим», чтобы открыть папку.
+                Неверно
               </p>
             </form>
 
@@ -371,30 +371,81 @@
             </div>
           </div>
 
-          <!-- Содержимое папки (скрыто до правильного ввода) -->
+          <!-- Содержимое папки 1 (сразу открываются фотографии) -->
           <div id="sonPhotoGallery" class="hidden mt-6 pt-6 border-t border-white/10">
-            <!-- Красивый блок с годом рождения 2001 при открытии папки -->
-            <div class="album-reveal mb-6 rounded-2xl bg-gradient-to-r from-amberAccent/15 via-orange-500/10 to-redAccent/15 border border-amberAccent/35 p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-lg">
-              <div class="flex items-center gap-4">
-                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-amberAccent to-redAccent text-graphite font-display font-extrabold text-sm flex items-center justify-center shrink-0 shadow-md">
-                  <span id="sonBirthYearDisplay">2001</span>
-                </div>
-                <div>
-                  <p class="text-[11px] font-bold uppercase tracking-widest text-amberAccent">
-                    Год рождения сына
-                  </p>
-                  <p class="font-display font-extrabold text-2xl sm:text-3xl text-white leading-tight">
-                    <span id="sonBirthYearTitle">2001</span> год
-                  </p>
-                </div>
+            <div id="sonPhotoGrid" class="album-reveal grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+          </div>
+        </div>
+
+        <!-- Защищённая папка 2: Фотоальбом дочери (файлы хранятся в папке 2/ на GitHub) -->
+        <div id="daughterPhotoFolderSection" class="reveal mt-6 glass-card rounded-3xl p-6 sm:p-8 border border-amberAccent/30 shadow-xl">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div class="flex items-start sm:items-center gap-4">
+              <div class="w-14 h-14 rounded-2xl bg-amberAccent/15 border border-amberAccent/35 flex items-center justify-center text-amberAccent shrink-0">
+                <svg id="daughterFolderLockIcon" class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                </svg>
+                <svg id="daughterFolderUnlockIcon" class="w-7 h-7 hidden text-emerald-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z"/>
+                </svg>
               </div>
-              <div class="inline-flex items-center gap-2 self-start sm:self-center px-3.5 py-1.5 rounded-xl bg-graphite/80 border border-white/10 text-xs text-gray-300">
-                <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-                <span>Фото в папке: <strong id="sonPhotoCountBadge" class="text-white">0</strong></span>
+              <div>
+                <div class="flex flex-wrap items-center gap-2">
+                  <span class="px-2.5 py-0.5 rounded-lg bg-amberAccent/15 text-amberAccent text-xs font-semibold">
+                    Личная папка • GitHub
+                  </span>
+                  <span id="daughterFolderStatusText" class="text-xs font-medium text-gray-400">Закрыта</span>
+                </div>
+                <h3 class="font-display font-bold text-xl sm:text-2xl text-white mt-1">
+                  Фотоальбом дочери
+                </h3>
+                <p class="text-xs sm:text-sm text-gray-400 mt-1">
+                  Открой папку по коду, чтобы увидеть все фотографии.
+                </p>
               </div>
             </div>
 
-            <div id="sonPhotoGrid" class="album-reveal grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+            <!-- Форма входа по имени -->
+            <form id="daughterFolderUnlockForm" class="w-full md:w-auto md:min-w-[290px]">
+              <div class="flex items-center gap-2">
+                <input
+                  id="daughterNameInput"
+                  type="text"
+                  autocomplete="off"
+                  placeholder="Введите имя..."
+                  aria-label="Введите имя для доступа к папке"
+                  class="flex-1 px-4 py-3 rounded-xl bg-graphite border border-white/15 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-amberAccent transition-colors"
+                >
+                <button
+                  type="submit"
+                  class="px-5 py-3 rounded-xl bg-gradient-to-r from-amberAccent to-orange-500 hover:from-amber-400 hover:to-orange-400 text-graphite font-bold text-sm whitespace-nowrap shadow-lg shadow-amberAccent/20 transition-all active:scale-95"
+                >
+                  Открыть
+                </button>
+              </div>
+              <p class="text-xs text-amber-200/80 mt-2">
+                Подсказка: <span class="font-semibold text-white">введи имя</span>
+              </p>
+              <p id="daughterFolderError" class="hidden text-xs text-red-400 font-medium mt-1">
+                Неверно
+              </p>
+            </form>
+
+            <!-- Кнопка блокировки после открытия -->
+            <div id="daughterFolderControlsOpen" class="hidden">
+              <button
+                type="button"
+                id="lockDaughterFolderBtn"
+                class="px-4 py-2.5 rounded-xl bg-white/5 hover:bg-redAccent/20 border border-white/15 text-xs sm:text-sm font-semibold text-gray-200 hover:text-red-300 transition-colors"
+              >
+                Закрыть папку
+              </button>
+            </div>
+          </div>
+
+          <!-- Содержимое папки 2 (сразу открываются фотографии) -->
+          <div id="daughterPhotoGallery" class="hidden mt-6 pt-6 border-t border-white/10">
+            <div id="daughterPhotoGrid" class="album-reveal grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
           </div>
         </div>
 
@@ -794,39 +845,231 @@
       yandexMetrikaId: ''
     };
 
-    // Настройки папки с фото сына (файлы загружаются на GitHub в папку photos/):
-    // secretName — код/имя для открытия ("Максим")
-    // birthYear — год рождения, который красиво высвечивается при открытии папки ("2001")
-    // githubFolder — папка в репозитории GitHub ('./photos/')
-    const SON_ALBUM_CONFIG = {
-      secretName: 'Максим',
-      birthYear: '2001',
-      githubFolder: './photos/',
-      photos: [
-        {
-          file: 'photo1.jpg',
-          title: 'Фото 1',
-          caption: 'GitHub • папка photos/'
-        },
-        {
-          file: 'photo2.jpg',
-          title: 'Фото 2',
-          caption: 'GitHub • папка photos/'
-        },
-        {
-          file: 'photo3.jpg',
-          title: 'Фото 3',
-          caption: 'GitHub • папка photos/'
-        }
-      ]
+    // Настройки папок с фото (папка 1 — сын, папка 2 — дочь):
+    // Сайт автоматически получает список всех фото из папок 1 и 2 через GitHub API,
+    // а если API недоступен — пробует стандартные имена (IMG-..., photo..., 1.jpg...).
+    const PHOTO_ALBUMS_CONFIG = {
+      repoOwner: 'barkovaleksej97-hue',
+      repoName: 'site1',
+      branch: 'main',
+      son: {
+        secretName: 'Максим',
+        folder: '1',
+        fallbackFiles: [
+          'IMG-20210703-WA0001.jpg', 'IMG-20210703-WA0002.jpg', 'IMG-20210703-WA0003.jpg', 'IMG-20210703-WA0004.jpg',
+          'IMG-20210707-WA0001.jpg', 'IMG-20210707-WA0002.jpg', 'IMG-20210707-WA0003.jpg', 'IMG-20210707-WA0004.jpg',
+          'photo1.jpg', 'photo2.jpg', 'photo3.jpg', 'photo4.jpg', 'photo5.jpg', 'photo6.jpg', 'photo7.jpg', 'photo8.jpg', 'photo9.jpg', 'photo10.jpg',
+          '1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '9.jpg', '10.jpg'
+        ]
+      },
+      daughter: {
+        secretName: 'Диана',
+        folder: '2',
+        fallbackFiles: [
+          'photo1.jpg', 'photo2.jpg', 'photo3.jpg', 'photo4.jpg', 'photo5.jpg', 'photo6.jpg', 'photo7.jpg', 'photo8.jpg', 'photo9.jpg', 'photo10.jpg',
+          '1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '9.jpg', '10.jpg'
+        ]
+      }
     };
 
-    function resolveGitHubPhotoSrc(photo) {
-      if (!photo) return '';
-      if (photo.src) return String(photo.src).trim();
-      const folder = String(SON_ALBUM_CONFIG.githubFolder || './photos/').replace(/\/?$/, '/');
-      const file = String(photo.file || '').replace(/^\/+/, '');
-      return folder + file;
+    const IMAGE_EXTENSIONS_REGEX = /\.(jpe?g|png|webp|gif)$/i;
+
+    async function fetchFolderPhotosFromGitHub(folderName, fallbackFiles) {
+      const cleanFolder = String(folderName || '').replace(/^\/+|\/+$/g, '');
+      const apiUrl = `https://api.github.com/repos/${PHOTO_ALBUMS_CONFIG.repoOwner}/${PHOTO_ALBUMS_CONFIG.repoName}/contents/${encodeURIComponent(cleanFolder)}?ref=${encodeURIComponent(PHOTO_ALBUMS_CONFIG.branch)}`;
+
+      try {
+        const res = await fetch(apiUrl, { cache: 'no-store' });
+        if (res.ok) {
+          const data = await res.json();
+          if (Array.isArray(data)) {
+            const imageFiles = data
+              .filter(entry => entry && entry.type === 'file' && IMAGE_EXTENSIONS_REGEX.test(entry.name))
+              .sort((a, b) => a.name.localeCompare(b.name, 'ru', { numeric: true }));
+
+            if (imageFiles.length > 0) {
+              return imageFiles.map((fileObj, idx) => ({
+                src: fileObj.download_url || `./${cleanFolder}/${fileObj.name}`,
+                title: `Фото ${idx + 1}`,
+                caption: fileObj.name
+              }));
+            }
+          }
+        }
+      } catch (e) {
+        // Если запрос к API не прошёл (например, офлайн или лимит запросов), используем резервный список
+      }
+
+      return (fallbackFiles || []).map((fileName, idx) => ({
+        src: `./${cleanFolder}/${fileName}`,
+        title: `Фото ${idx + 1}`,
+        caption: fileName,
+        isFallback: true
+      }));
+    }
+
+    function setupPhotoAlbum(albumConfig, ids) {
+      const form = document.getElementById(ids.form);
+      const input = document.getElementById(ids.input);
+      const errorEl = document.getElementById(ids.error);
+      const gallery = document.getElementById(ids.gallery);
+      const grid = document.getElementById(ids.grid);
+      const statusText = document.getElementById(ids.statusText);
+      const lockIcon = document.getElementById(ids.lockIcon);
+      const unlockIcon = document.getElementById(ids.unlockIcon);
+      const openControls = document.getElementById(ids.openControls);
+      const lockBtn = document.getElementById(ids.lockBtn);
+
+      if (!form || !input || !gallery || !grid) return;
+
+      const renderPhotos = async () => {
+        grid.innerHTML = '<p class="col-span-full text-sm text-gray-400">Загрузка фотографий...</p>';
+        const list = await fetchFolderPhotosFromGitHub(albumConfig.folder, albumConfig.fallbackFiles);
+
+        if (!Array.isArray(list) || list.length === 0) {
+          grid.innerHTML = '<p class="col-span-full text-sm text-gray-400">В папке пока нет фотографий.</p>';
+          return;
+        }
+
+        grid.innerHTML = '';
+        list.forEach((photo, index) => {
+          const card = document.createElement('article');
+          card.className = 'group cursor-pointer rounded-2xl overflow-hidden bg-graphite border border-white/10 hover:border-amberAccent/50 transition-all';
+          const title = photo.title || `Фото ${index + 1}`;
+          const caption = photo.caption || '';
+
+          card.innerHTML = `
+            <div class="relative aspect-[4/3] bg-white/[0.03] overflow-hidden flex items-center justify-center">
+              <img
+                src="${escapeHtml(photo.src)}"
+                alt="${escapeHtml(title)}"
+                loading="lazy"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              >
+            </div>
+            <div class="p-3.5">
+              <p class="font-semibold text-sm text-white truncate">${escapeHtml(title)}</p>
+              ${caption ? `<p class="text-xs text-gray-400 mt-0.5 truncate">${escapeHtml(caption)}</p>` : ''}
+            </div>
+          `;
+
+          const imgEl = card.querySelector('img');
+          if (photo.isFallback) {
+            imgEl.addEventListener('error', () => {
+              card.remove();
+            }, { once: true });
+          } else {
+            imgEl.addEventListener('error', () => {
+              card.innerHTML = `
+                <div class="p-4 text-center text-xs text-gray-400">
+                  Не удалось загрузить: ${escapeHtml(caption)}
+                </div>
+              `;
+            }, { once: true });
+          }
+
+          card.addEventListener('click', () => openPhotoLightbox(photo, title));
+          grid.appendChild(card);
+        });
+      };
+
+      const setFolderLocked = (locked) => {
+        if (locked) {
+          gallery.classList.add('hidden');
+          form.classList.remove('hidden');
+          openControls.classList.add('hidden');
+          lockIcon.classList.remove('hidden');
+          unlockIcon.classList.add('hidden');
+          statusText.textContent = 'Закрыта';
+          statusText.className = 'text-xs font-medium text-gray-400';
+          input.value = '';
+          grid.innerHTML = '';
+        } else {
+          gallery.classList.remove('hidden');
+          form.classList.add('hidden');
+          openControls.classList.remove('hidden');
+          lockIcon.classList.add('hidden');
+          unlockIcon.classList.remove('hidden');
+          errorEl.classList.add('hidden');
+          statusText.textContent = 'Открыта';
+          statusText.className = 'text-xs font-semibold text-emerald-400';
+          renderPhotos();
+        }
+      };
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const entered = input.value.trim().toLowerCase();
+        const expected = String(albumConfig.secretName || '').trim().toLowerCase();
+        if (entered === expected) {
+          setFolderLocked(false);
+          showToast('Папка открыта');
+        } else {
+          errorEl.classList.remove('hidden');
+          input.focus();
+        }
+      });
+
+      input.addEventListener('input', () => {
+        if (!errorEl.classList.contains('hidden')) {
+          errorEl.classList.add('hidden');
+        }
+      });
+
+      if (lockBtn) {
+        lockBtn.addEventListener('click', () => {
+          setFolderLocked(true);
+          showToast('Папка снова закрыта');
+        });
+      }
+    }
+
+    function initPhotoAlbums() {
+      setupPhotoAlbum(PHOTO_ALBUMS_CONFIG.son, {
+        form: 'sonFolderUnlockForm',
+        input: 'sonNameInput',
+        error: 'sonFolderError',
+        gallery: 'sonPhotoGallery',
+        grid: 'sonPhotoGrid',
+        statusText: 'sonFolderStatusText',
+        lockIcon: 'folderLockIcon',
+        unlockIcon: 'folderUnlockIcon',
+        openControls: 'sonFolderControlsOpen',
+        lockBtn: 'lockSonFolderBtn'
+      });
+
+      setupPhotoAlbum(PHOTO_ALBUMS_CONFIG.daughter, {
+        form: 'daughterFolderUnlockForm',
+        input: 'daughterNameInput',
+        error: 'daughterFolderError',
+        gallery: 'daughterPhotoGallery',
+        grid: 'daughterPhotoGrid',
+        statusText: 'daughterFolderStatusText',
+        lockIcon: 'daughterFolderLockIcon',
+        unlockIcon: 'daughterFolderUnlockIcon',
+        openControls: 'daughterFolderControlsOpen',
+        lockBtn: 'lockDaughterFolderBtn'
+      });
+
+      const lightbox = document.getElementById('photoLightboxModal');
+      const closeLightboxBtn = document.getElementById('closePhotoLightboxBtn');
+      const closeLightbox = () => {
+        if (!lightbox) return;
+        lightbox.classList.add('hidden');
+        lightbox.classList.remove('flex');
+        document.body.style.overflow = '';
+      };
+      if (closeLightboxBtn) closeLightboxBtn.addEventListener('click', closeLightbox);
+      if (lightbox) {
+        lightbox.addEventListener('click', (e) => {
+          if (e.target === lightbox) closeLightbox();
+        });
+      }
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox && !lightbox.classList.contains('hidden')) {
+          closeLightbox();
+        }
+      });
     }
 
     // Актуальный прайс-лист 2026 года по Амурской области (только за работу, в рублях)
@@ -890,51 +1133,14 @@
       }
     };
 
-    const CALCULATOR_PRESETS = {
-      brick: {
-        label: 'Квартира / кирпич (базовый расчёт)',
-        items: {
-          b_chase_brick: 25,
-          b_hole_brick: 15,
-          b_box_install: 15,
-          b_cable_chase: 60,
-          b_jbox: 4,
-          b_socket: 15,
-          b_shield_mod: 12
-        }
-      },
-      wood: {
-        label: 'Деревянный дом (базовый расчёт)',
-        items: {
-          w_channel: 55,
-          w_cable_ch: 65,
-          w_sleeve: 5,
-          w_socket: 14,
-          w_jbox: 4,
-          w_shield: 1,
-          w_ground: 1
-        }
-      },
-      heating: {
-        label: 'Электроотопление дома (базовый расчёт)',
-        items: {
-          h_boiler_full: 1,
-          h_power_line: 1,
-          h_radiator: 5,
-          h_pipes: 35,
-          h_startup: 1
-        }
-      }
-    };
-
-    const CACHE_KEY = 'barkov_site_videos_cache_v3';
+    const CACHE_KEY = 'barkov_site1_videos_cache_v1';
     const FALLBACK_GRADIENTS = [
-      'from-amber-600/80 via-orange-900/80 to-graphite',
-      'from-red-600/80 via-rose-950/80 to-graphite',
-      'from-orange-500/80 via-red-950/80 to-graphite',
-      'from-yellow-600/75 via-stone-900/85 to-graphite',
-      'from-red-500/80 via-amber-950/85 to-graphite',
-      'from-amber-500/75 via-zinc-900/85 to-graphite'
+      'from-amber-600/30 via-orange-700/20 to-red-900/30',
+      'from-red-700/30 via-rose-800/20 to-amber-900/25',
+      'from-emerald-700/25 via-teal-800/20 to-slate-900/40',
+      'from-orange-600/30 via-amber-700/20 to-stone-900/40',
+      'from-rose-700/25 via-purple-900/20 to-slate-900/40',
+      'from-sky-700/25 via-indigo-900/20 to-slate-900/40'
     ];
 
     let loadedVideos = [];
@@ -949,7 +1155,7 @@
         initMobileMenu();
         initVideoSearch();
         loadVideosFromSheet();
-        initSonPhotoFolder();
+        initPhotoAlbums();
         initPriceAndCalculator();
         initContactForm();
         initCopyPhone();
@@ -962,134 +1168,6 @@
         console.error('Ошибка инициализации страницы:', error);
       }
     });
-
-    function initSonPhotoFolder() {
-      const birthYearDisplay = document.getElementById('sonBirthYearDisplay');
-      const birthYearTitle = document.getElementById('sonBirthYearTitle');
-      const countBadge = document.getElementById('sonPhotoCountBadge');
-      const form = document.getElementById('sonFolderUnlockForm');
-      const input = document.getElementById('sonNameInput');
-      const errorEl = document.getElementById('sonFolderError');
-      const gallery = document.getElementById('sonPhotoGallery');
-      const grid = document.getElementById('sonPhotoGrid');
-      const statusText = document.getElementById('sonFolderStatusText');
-      const lockIcon = document.getElementById('folderLockIcon');
-      const unlockIcon = document.getElementById('folderUnlockIcon');
-      const openControls = document.getElementById('sonFolderControlsOpen');
-      const lockBtn = document.getElementById('lockSonFolderBtn');
-
-      if (!form || !input || !gallery || !grid) return;
-
-      const yearText = String(SON_ALBUM_CONFIG.birthYear || '2001').trim();
-      if (birthYearDisplay) birthYearDisplay.textContent = yearText;
-      if (birthYearTitle) birthYearTitle.textContent = yearText;
-
-      const renderSonPhotos = () => {
-        const list = Array.isArray(SON_ALBUM_CONFIG.photos) ? SON_ALBUM_CONFIG.photos : [];
-        if (countBadge) countBadge.textContent = String(list.length);
-        if (list.length === 0) {
-          grid.innerHTML = '<p class="col-span-full text-sm text-gray-400">В папке пока нет фотографий.</p>';
-          return;
-        }
-        grid.innerHTML = '';
-        list.forEach((photo, index) => {
-          const card = document.createElement('article');
-          card.className = 'group cursor-pointer rounded-2xl overflow-hidden bg-graphite border border-white/10 hover:border-amberAccent/50 transition-all';
-          const src = resolveGitHubPhotoSrc(photo);
-          const title = photo.title || `Фото ${index + 1}`;
-          const caption = photo.caption || '';
-          card.innerHTML = `
-            <div class="relative aspect-[4/3] bg-white/[0.03] overflow-hidden flex items-center justify-center">
-              <img
-                src="${escapeHtml(src)}"
-                alt="${escapeHtml(title)}"
-                loading="lazy"
-                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-              >
-              <div style="display:none;" class="w-full h-full items-center justify-center p-4 text-center text-xs text-gray-400">
-                Файл не найден на GitHub:<br>${escapeHtml(src)}
-              </div>
-            </div>
-            <div class="p-3.5">
-              <p class="font-semibold text-sm text-white truncate">${escapeHtml(title)}</p>
-              ${caption ? `<p class="text-xs text-gray-400 mt-0.5 line-clamp-2">${escapeHtml(caption)}</p>` : ''}
-            </div>
-          `;
-          card.addEventListener('click', () => openPhotoLightbox({ ...photo, src }, title));
-          grid.appendChild(card);
-        });
-      };
-
-      const setFolderLocked = (locked) => {
-        if (locked) {
-          gallery.classList.add('hidden');
-          form.classList.remove('hidden');
-          openControls.classList.add('hidden');
-          lockIcon.classList.remove('hidden');
-          unlockIcon.classList.add('hidden');
-          statusText.textContent = 'Закрыта';
-          statusText.className = 'text-xs font-medium text-gray-400';
-          input.value = '';
-        } else {
-          renderSonPhotos();
-          gallery.classList.remove('hidden');
-          form.classList.add('hidden');
-          openControls.classList.remove('hidden');
-          lockIcon.classList.add('hidden');
-          unlockIcon.classList.remove('hidden');
-          errorEl.classList.add('hidden');
-          statusText.textContent = `Открыта • ${yearText} г.`;
-          statusText.className = 'text-xs font-semibold text-emerald-400';
-        }
-      };
-
-      form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const entered = input.value.trim().toLowerCase();
-        const expected = String(SON_ALBUM_CONFIG.secretName || 'Максим').trim().toLowerCase();
-        if (entered === expected) {
-          setFolderLocked(false);
-          showToast(`Папка открыта (${yearText} г.)`);
-        } else {
-          errorEl.classList.remove('hidden');
-          input.focus();
-        }
-      });
-
-      input.addEventListener('input', () => {
-        if (!errorEl.classList.contains('hidden')) {
-          errorEl.classList.add('hidden');
-        }
-      });
-
-      if (lockBtn) {
-        lockBtn.addEventListener('click', () => {
-          setFolderLocked(true);
-          showToast('Папка снова закрыта');
-        });
-      }
-
-      const lightbox = document.getElementById('photoLightboxModal');
-      const closeLightboxBtn = document.getElementById('closePhotoLightboxBtn');
-      const closeLightbox = () => {
-        if (!lightbox) return;
-        lightbox.classList.add('hidden');
-        lightbox.classList.remove('flex');
-        document.body.style.overflow = '';
-      };
-      if (closeLightboxBtn) closeLightboxBtn.addEventListener('click', closeLightbox);
-      if (lightbox) {
-        lightbox.addEventListener('click', (e) => {
-          if (e.target === lightbox) closeLightbox();
-        });
-      }
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && lightbox && !lightbox.classList.contains('hidden')) {
-          closeLightbox();
-        }
-      });
-    }
 
     function openPhotoLightbox(photo, fallbackTitle) {
       const lightbox = document.getElementById('photoLightboxModal');
