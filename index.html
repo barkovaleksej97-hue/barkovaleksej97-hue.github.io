@@ -59,6 +59,19 @@
       opacity: 1;
       transform: translateY(0);
     }
+    @keyframes albumReveal {
+      from {
+        opacity: 0;
+        transform: translateY(14px) scale(0.985);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+    .album-reveal {
+      animation: albumReveal 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
     .no-scrollbar::-webkit-scrollbar {
       display: none;
     }
@@ -159,9 +172,22 @@
         <p class="text-base sm:text-xl font-medium text-amber-200/90 max-w-3xl mx-auto mb-5 leading-relaxed">
           Мастер по электрике и отоплению <span class="text-redAccent mx-1">•</span> Автор песен, стихов и музыкальных видео
         </p>
-        <p class="text-gray-400 text-sm sm:text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
+        <p class="text-gray-400 text-sm sm:text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
           Делаю надёжный свет и тепло в домах, а для души пишу песни, юмористические панк-сказки и снимаю клипы.
         </p>
+
+        <!-- Красивое предупреждение о VPN -->
+        <div id="vpnNoticeBanner" role="status" class="max-w-xl mx-auto mb-10 rounded-2xl bg-gradient-to-r from-amberAccent/15 via-orange-500/15 to-redAccent/15 border border-amberAccent/40 px-4 py-3.5 sm:px-5 sm:py-4 shadow-lg shadow-amberAccent/10 flex items-center justify-center gap-3 text-left sm:text-center">
+          <span class="w-9 h-9 rounded-xl bg-amberAccent/20 border border-amberAccent/40 text-amberAccent flex items-center justify-center shrink-0">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+            </svg>
+          </span>
+          <p class="text-xs sm:text-sm font-semibold text-amber-100 leading-snug">
+            не загружается включи vpn
+          </p>
+        </div>
+
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a href="#services" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-2xl bg-gradient-to-r from-amberAccent to-redAccent hover:from-amber-400 hover:to-red-500 text-graphite font-bold text-base shadow-xl shadow-amberAccent/20 transition-all hover:-translate-y-0.5 active:scale-95">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
@@ -278,6 +304,100 @@
         <!-- Сетка видео -->
         <div id="videoGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         </div>
+
+        <!-- Защищённая папка с фото сына (файлы хранятся в папке photos/ на GitHub) -->
+        <div id="sonPhotoFolderSection" class="reveal mt-12 glass-card rounded-3xl p-6 sm:p-8 border border-amberAccent/30 shadow-xl">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div class="flex items-start sm:items-center gap-4">
+              <div class="w-14 h-14 rounded-2xl bg-amberAccent/15 border border-amberAccent/35 flex items-center justify-center text-amberAccent shrink-0">
+                <svg id="folderLockIcon" class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                </svg>
+                <svg id="folderUnlockIcon" class="w-7 h-7 hidden text-emerald-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z"/>
+                </svg>
+              </div>
+              <div>
+                <div class="flex flex-wrap items-center gap-2">
+                  <span class="px-2.5 py-0.5 rounded-lg bg-amberAccent/15 text-amberAccent text-xs font-semibold">
+                    Личная папка • GitHub
+                  </span>
+                  <span id="sonFolderStatusText" class="text-xs font-medium text-gray-400">Закрыта</span>
+                </div>
+                <h3 class="font-display font-bold text-xl sm:text-2xl text-white mt-1">
+                  Фотоальбом сына
+                </h3>
+                <p class="text-xs sm:text-sm text-gray-400 mt-1">
+                  Открой папку по коду, чтобы увидеть год рождения и все фотографии.
+                </p>
+              </div>
+            </div>
+
+            <!-- Форма входа по имени -->
+            <form id="sonFolderUnlockForm" class="w-full md:w-auto md:min-w-[290px]">
+              <div class="flex items-center gap-2">
+                <input
+                  id="sonNameInput"
+                  type="text"
+                  autocomplete="off"
+                  placeholder="Введите имя..."
+                  aria-label="Введите имя для доступа к папке"
+                  class="flex-1 px-4 py-3 rounded-xl bg-graphite border border-white/15 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-amberAccent transition-colors"
+                >
+                <button
+                  type="submit"
+                  class="px-5 py-3 rounded-xl bg-gradient-to-r from-amberAccent to-orange-500 hover:from-amber-400 hover:to-orange-400 text-graphite font-bold text-sm whitespace-nowrap shadow-lg shadow-amberAccent/20 transition-all active:scale-95"
+                >
+                  Открыть
+                </button>
+              </div>
+              <p class="text-xs text-amber-200/80 mt-2">
+                Подсказка: <span class="font-semibold text-white">введи имя</span>
+              </p>
+              <p id="sonFolderError" class="hidden text-xs text-red-400 font-medium mt-1">
+                Неверный ввод. Введи имя «Максим», чтобы открыть папку.
+              </p>
+            </form>
+
+            <!-- Кнопка блокировки после открытия -->
+            <div id="sonFolderControlsOpen" class="hidden">
+              <button
+                type="button"
+                id="lockSonFolderBtn"
+                class="px-4 py-2.5 rounded-xl bg-white/5 hover:bg-redAccent/20 border border-white/15 text-xs sm:text-sm font-semibold text-gray-200 hover:text-red-300 transition-colors"
+              >
+                Закрыть папку
+              </button>
+            </div>
+          </div>
+
+          <!-- Содержимое папки (скрыто до правильного ввода) -->
+          <div id="sonPhotoGallery" class="hidden mt-6 pt-6 border-t border-white/10">
+            <!-- Красивый блок с годом рождения 2001 при открытии папки -->
+            <div class="album-reveal mb-6 rounded-2xl bg-gradient-to-r from-amberAccent/15 via-orange-500/10 to-redAccent/15 border border-amberAccent/35 p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-lg">
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-amberAccent to-redAccent text-graphite font-display font-extrabold text-sm flex items-center justify-center shrink-0 shadow-md">
+                  <span id="sonBirthYearDisplay">2001</span>
+                </div>
+                <div>
+                  <p class="text-[11px] font-bold uppercase tracking-widest text-amberAccent">
+                    Год рождения сына
+                  </p>
+                  <p class="font-display font-extrabold text-2xl sm:text-3xl text-white leading-tight">
+                    <span id="sonBirthYearTitle">2001</span> год
+                  </p>
+                </div>
+              </div>
+              <div class="inline-flex items-center gap-2 self-start sm:self-center px-3.5 py-1.5 rounded-xl bg-graphite/80 border border-white/10 text-xs text-gray-300">
+                <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                <span>Фото в папке: <strong id="sonPhotoCountBadge" class="text-white">0</strong></span>
+              </div>
+            </div>
+
+            <div id="sonPhotoGrid" class="album-reveal grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+          </div>
+        </div>
+
         <div class="reveal text-center mt-12">
           <a id="youtubeChannelBtn" href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-redAccent hover:bg-red-500 text-white font-bold text-base shadow-xl shadow-redAccent/25 transition-all hover:-translate-y-0.5 active:scale-95">
             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -633,6 +753,26 @@
     </div>
   </div>
 
+  <!-- Модальное окно просмотра фото из папки -->
+  <div id="photoLightboxModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/90 backdrop-blur-sm">
+    <div class="relative w-full max-w-4xl bg-card rounded-3xl border border-white/15 shadow-2xl overflow-hidden">
+      <div class="flex items-center justify-between px-5 sm:px-6 py-4 border-b border-white/10">
+        <h3 id="photoLightboxTitle" class="font-display font-bold text-base sm:text-lg text-white truncate pr-4">Фото</h3>
+        <button id="closePhotoLightboxBtn" type="button" aria-label="Закрыть фото" class="p-2 rounded-xl bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <div class="bg-graphite flex items-center justify-center max-h-[75vh] overflow-hidden p-2 sm:p-4">
+        <img id="photoLightboxImg" src="" alt="" class="max-h-[68vh] w-auto max-w-full object-contain rounded-2xl">
+      </div>
+      <div class="px-5 sm:px-6 py-3.5 border-t border-white/10">
+        <p id="photoLightboxCaption" class="text-xs sm:text-sm text-gray-300"></p>
+      </div>
+    </div>
+  </div>
+
   <div id="toast" class="fixed bottom-24 md:bottom-6 left-1/2 -translate-x-1/2 z-50 pointer-events-none opacity-0 translate-y-4 transition-all duration-300">
     <div class="flex items-center gap-3 px-5 py-3.5 rounded-2xl bg-card border border-amberAccent/40 text-white text-sm font-medium shadow-2xl whitespace-nowrap">
       <span class="w-2.5 h-2.5 rounded-full bg-amberAccent shrink-0"></span>
@@ -653,6 +793,41 @@
       // Если захотите подключить Яндекс.Метрику, впишите сюда её номер (например: '98765432')
       yandexMetrikaId: ''
     };
+
+    // Настройки папки с фото сына (файлы загружаются на GitHub в папку photos/):
+    // secretName — код/имя для открытия ("Максим")
+    // birthYear — год рождения, который красиво высвечивается при открытии папки ("2001")
+    // githubFolder — папка в репозитории GitHub ('./photos/')
+    const SON_ALBUM_CONFIG = {
+      secretName: 'Максим',
+      birthYear: '2001',
+      githubFolder: './photos/',
+      photos: [
+        {
+          file: 'photo1.jpg',
+          title: 'Фото 1',
+          caption: 'GitHub • папка photos/'
+        },
+        {
+          file: 'photo2.jpg',
+          title: 'Фото 2',
+          caption: 'GitHub • папка photos/'
+        },
+        {
+          file: 'photo3.jpg',
+          title: 'Фото 3',
+          caption: 'GitHub • папка photos/'
+        }
+      ]
+    };
+
+    function resolveGitHubPhotoSrc(photo) {
+      if (!photo) return '';
+      if (photo.src) return String(photo.src).trim();
+      const folder = String(SON_ALBUM_CONFIG.githubFolder || './photos/').replace(/\/?$/, '/');
+      const file = String(photo.file || '').replace(/^\/+/, '');
+      return folder + file;
+    }
 
     // Актуальный прайс-лист 2026 года по Амурской области (только за работу, в рублях)
     const PRICE_DATA_2026 = {
@@ -766,7 +941,7 @@
     let activeGenre = 'all';
     let searchQuery = '';
     let activePriceTab = 'brick';
-    let calcQuantities = {}; // { itemId: qty }
+    let calcQuantities = {};
 
     document.addEventListener('DOMContentLoaded', () => {
       try {
@@ -774,6 +949,7 @@
         initMobileMenu();
         initVideoSearch();
         loadVideosFromSheet();
+        initSonPhotoFolder();
         initPriceAndCalculator();
         initContactForm();
         initCopyPhone();
@@ -786,6 +962,149 @@
         console.error('Ошибка инициализации страницы:', error);
       }
     });
+
+    function initSonPhotoFolder() {
+      const birthYearDisplay = document.getElementById('sonBirthYearDisplay');
+      const birthYearTitle = document.getElementById('sonBirthYearTitle');
+      const countBadge = document.getElementById('sonPhotoCountBadge');
+      const form = document.getElementById('sonFolderUnlockForm');
+      const input = document.getElementById('sonNameInput');
+      const errorEl = document.getElementById('sonFolderError');
+      const gallery = document.getElementById('sonPhotoGallery');
+      const grid = document.getElementById('sonPhotoGrid');
+      const statusText = document.getElementById('sonFolderStatusText');
+      const lockIcon = document.getElementById('folderLockIcon');
+      const unlockIcon = document.getElementById('folderUnlockIcon');
+      const openControls = document.getElementById('sonFolderControlsOpen');
+      const lockBtn = document.getElementById('lockSonFolderBtn');
+
+      if (!form || !input || !gallery || !grid) return;
+
+      const yearText = String(SON_ALBUM_CONFIG.birthYear || '2001').trim();
+      if (birthYearDisplay) birthYearDisplay.textContent = yearText;
+      if (birthYearTitle) birthYearTitle.textContent = yearText;
+
+      const renderSonPhotos = () => {
+        const list = Array.isArray(SON_ALBUM_CONFIG.photos) ? SON_ALBUM_CONFIG.photos : [];
+        if (countBadge) countBadge.textContent = String(list.length);
+        if (list.length === 0) {
+          grid.innerHTML = '<p class="col-span-full text-sm text-gray-400">В папке пока нет фотографий.</p>';
+          return;
+        }
+        grid.innerHTML = '';
+        list.forEach((photo, index) => {
+          const card = document.createElement('article');
+          card.className = 'group cursor-pointer rounded-2xl overflow-hidden bg-graphite border border-white/10 hover:border-amberAccent/50 transition-all';
+          const src = resolveGitHubPhotoSrc(photo);
+          const title = photo.title || `Фото ${index + 1}`;
+          const caption = photo.caption || '';
+          card.innerHTML = `
+            <div class="relative aspect-[4/3] bg-white/[0.03] overflow-hidden flex items-center justify-center">
+              <img
+                src="${escapeHtml(src)}"
+                alt="${escapeHtml(title)}"
+                loading="lazy"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              >
+              <div style="display:none;" class="w-full h-full items-center justify-center p-4 text-center text-xs text-gray-400">
+                Файл не найден на GitHub:<br>${escapeHtml(src)}
+              </div>
+            </div>
+            <div class="p-3.5">
+              <p class="font-semibold text-sm text-white truncate">${escapeHtml(title)}</p>
+              ${caption ? `<p class="text-xs text-gray-400 mt-0.5 line-clamp-2">${escapeHtml(caption)}</p>` : ''}
+            </div>
+          `;
+          card.addEventListener('click', () => openPhotoLightbox({ ...photo, src }, title));
+          grid.appendChild(card);
+        });
+      };
+
+      const setFolderLocked = (locked) => {
+        if (locked) {
+          gallery.classList.add('hidden');
+          form.classList.remove('hidden');
+          openControls.classList.add('hidden');
+          lockIcon.classList.remove('hidden');
+          unlockIcon.classList.add('hidden');
+          statusText.textContent = 'Закрыта';
+          statusText.className = 'text-xs font-medium text-gray-400';
+          input.value = '';
+        } else {
+          renderSonPhotos();
+          gallery.classList.remove('hidden');
+          form.classList.add('hidden');
+          openControls.classList.remove('hidden');
+          lockIcon.classList.add('hidden');
+          unlockIcon.classList.remove('hidden');
+          errorEl.classList.add('hidden');
+          statusText.textContent = `Открыта • ${yearText} г.`;
+          statusText.className = 'text-xs font-semibold text-emerald-400';
+        }
+      };
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const entered = input.value.trim().toLowerCase();
+        const expected = String(SON_ALBUM_CONFIG.secretName || 'Максим').trim().toLowerCase();
+        if (entered === expected) {
+          setFolderLocked(false);
+          showToast(`Папка открыта (${yearText} г.)`);
+        } else {
+          errorEl.classList.remove('hidden');
+          input.focus();
+        }
+      });
+
+      input.addEventListener('input', () => {
+        if (!errorEl.classList.contains('hidden')) {
+          errorEl.classList.add('hidden');
+        }
+      });
+
+      if (lockBtn) {
+        lockBtn.addEventListener('click', () => {
+          setFolderLocked(true);
+          showToast('Папка снова закрыта');
+        });
+      }
+
+      const lightbox = document.getElementById('photoLightboxModal');
+      const closeLightboxBtn = document.getElementById('closePhotoLightboxBtn');
+      const closeLightbox = () => {
+        if (!lightbox) return;
+        lightbox.classList.add('hidden');
+        lightbox.classList.remove('flex');
+        document.body.style.overflow = '';
+      };
+      if (closeLightboxBtn) closeLightboxBtn.addEventListener('click', closeLightbox);
+      if (lightbox) {
+        lightbox.addEventListener('click', (e) => {
+          if (e.target === lightbox) closeLightbox();
+        });
+      }
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox && !lightbox.classList.contains('hidden')) {
+          closeLightbox();
+        }
+      });
+    }
+
+    function openPhotoLightbox(photo, fallbackTitle) {
+      const lightbox = document.getElementById('photoLightboxModal');
+      const img = document.getElementById('photoLightboxImg');
+      const titleEl = document.getElementById('photoLightboxTitle');
+      const captionEl = document.getElementById('photoLightboxCaption');
+      if (!lightbox || !img) return;
+      img.src = photo.src;
+      img.alt = fallbackTitle;
+      titleEl.textContent = fallbackTitle;
+      captionEl.textContent = photo.caption || '';
+      lightbox.classList.remove('hidden');
+      lightbox.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    }
 
     function formatRub(num) {
       return Math.round(num).toLocaleString('ru-RU') + ' ₽';
@@ -939,7 +1258,6 @@
     }
 
     function getDefaultStepForItem(id) {
-      // Для погонных метров кабеля/штробы/труб удобно добавлять сразу по 5 или 10 м, а в калькуляторе можно ставить любое точное число
       if (id.includes('cable') || id.includes('channel') || id.includes('metal_hose') || id.includes('retro') || id.includes('pipes')) {
         return 10;
       }
@@ -1072,10 +1390,10 @@
       if (details) {
         lines.push(`Комментарий по объекту: ${details}`);
       }
-      return lines.join('\n');
+      return lines.join('
+');
     }
 
-    // Облачный счётчик посещений для GitHub Pages с защитой от накрутки при обновлении вкладки
     async function initVisitorCounter() {
       const valEl = document.getElementById('visitorCountValue');
       if (!valEl) return;
@@ -1122,7 +1440,6 @@
         }
       } catch (e) {}
 
-      // Резервный локальный счётчик, если внешние сервисы временно недоступны
       let localVal = parseInt(localStorage.getItem(localBackupKey) || '1', 10);
       if (!alreadyCounted) {
         localVal += 1;
@@ -1131,7 +1448,6 @@
       displayCount(localVal);
     }
 
-    // Опциональное подключение Яндекс.Метрики (если в SITE_CONFIG.yandexMetrikaId указан номер счётчика)
     function initYandexMetrika() {
       const id = String(SITE_CONFIG.yandexMetrikaId || '').trim();
       if (!id || !/^\d+$/.test(id)) return;
@@ -1606,7 +1922,9 @@
         const contact = document.getElementById('formContact').value.trim();
         const message = document.getElementById('formMessage').value.trim();
         if (!name || !message) return;
-        const fullText = `Здравствуйте, Алексей! Меня зовут ${name}.\nКонтакт для связи: ${contact}\nСообщение: ${message}`;
+        const fullText = `Здравствуйте, Алексей! Меня зовут ${name}.
+Контакт для связи: ${contact}
+Сообщение: ${message}`;
         window.open(`https://wa.me/${SITE_CONFIG.phoneClean}?text=${encodeURIComponent(fullText)}`, '_blank', 'noopener');
         form.reset();
         showToast('Открываем WhatsApp для отправки сообщения...');
