@@ -1390,8 +1390,7 @@
       if (details) {
         lines.push(`Комментарий по объекту: ${details}`);
       }
-      return lines.join('
-');
+      return lines.join('\n');
     }
 
     async function initVisitorCounter() {
@@ -1922,9 +1921,7 @@
         const contact = document.getElementById('formContact').value.trim();
         const message = document.getElementById('formMessage').value.trim();
         if (!name || !message) return;
-        const fullText = `Здравствуйте, Алексей! Меня зовут ${name}.
-Контакт для связи: ${contact}
-Сообщение: ${message}`;
+        const fullText = `Здравствуйте, Алексей! Меня зовут ${name}.\nКонтакт для связи: ${contact}\nСообщение: ${message}`;
         window.open(`https://wa.me/${SITE_CONFIG.phoneClean}?text=${encodeURIComponent(fullText)}`, '_blank', 'noopener');
         form.reset();
         showToast('Открываем WhatsApp для отправки сообщения...');
